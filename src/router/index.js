@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import Home from '@/pages/Home'
+import TrackSession from '@/pages/TrackSession'
+import SetAttendance from '@/pages/SetAttendance'
+import SetCategories from '@/pages/SetCategories'
 
 Vue.use(Router)
 
@@ -8,8 +11,23 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/track-session',
+      name: 'TrackSession',
+      component: TrackSession
+    },
+    {
+      path: '/set-attendance',
+      name: 'SetAttendance',
+      component: SetAttendance
+    },
+    {
+      path: '/set-categories',
+      name: 'SetCategories',
+      component: SetCategories
     }
   ]
 })
