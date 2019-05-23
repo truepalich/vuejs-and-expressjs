@@ -1,28 +1,10 @@
 <template>
-  <!--<div id="app">-->
-    <!--<header>-->
-      <!--<span>Vue.js PWA</span>-->
-    <!--</header>-->
-    <!--<main>-->
-      <!--<img src="./assets/logo.png" alt="Vue.js PWA">-->
-      <!--<router-view></router-view>-->
-    <!--</main>-->
-  <!--</div>-->
-
   <v-app>
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
-    <v-navigation-drawer app></v-navigation-drawer>
-    <v-toolbar app></v-toolbar>
-    <v-content>
-      <v-container fluid>
-        <img src="./assets/logo.png" alt="Vue.js PWA">
-        <router-view></router-view>
-      </v-container>
-    </v-content>
-    <v-footer app></v-footer>
+    <v-container fill-height fluid class="pa-0">
+      <router-view></router-view>
+    </v-container>
   </v-app>
-
-
 </template>
 
 <script>
