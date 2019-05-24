@@ -5,7 +5,7 @@
     class="white"
   >
     <v-flex class="text-xs-center">
-      <img src="../assets/LuceoSports-Logo.png" alt="Vue.js PWA">
+      <img src="../assets/LuceoSports-Logo.png" alt="Luceo Sports">
       <div></div>
       <v-progress-circular
         :size="80"
@@ -24,7 +24,7 @@
 
       created: function () {
         setTimeout(() => {
-          this.$router.push({ name: 'TrackSession' })
+          this.$router.push({ name: 'Sessions' })
           console.log('done')
         }, 2000)
       }

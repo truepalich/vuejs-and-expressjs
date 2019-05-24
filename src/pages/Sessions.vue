@@ -1,54 +1,61 @@
 <template>
-  <v-layout row class="pa-3">
-    <v-flex>
-      <v-list two-line>
-        <template v-for="(item, index) in items">
-          <v-list-tile
-            :key="item.title"
-            avatar
-            ripple
-            @click="toggle(index)"
-          >
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              <v-list-tile-sub-title class="text--primary">{{ item.headline }}</v-list-tile-sub-title>
-              <v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>
-            </v-list-tile-content>
+  <v-layout wrap>
 
-            <v-list-tile-action>
-              <v-list-tile-action-text>{{ item.action }}</v-list-tile-action-text>
-              <v-icon
-                v-if="selected.indexOf(index) < 0"
-                color="grey lighten-1"
-              >
-                star_border
-              </v-icon>
-
-              <v-icon
-                v-else
-                color="yellow darken-2"
-              >
-                star
-              </v-icon>
-            </v-list-tile-action>
-
-          </v-list-tile>
-          <v-divider
-            v-if="index + 1 < items.length"
-            :key="index"
-          ></v-divider>
-        </template>
-      </v-list>
+    <v-flex xs9 class="pa-1">
+      <ChooseTeam></ChooseTeam>
     </v-flex>
+
+    <v-flex xs3 class="text-xs-right pa-1">
+      <v-btn flat icon color="deep-orange lighten-2" class="ma-0">
+        <v-icon>settings</v-icon>
+      </v-btn>
+    </v-flex>
+
+    <v-flex xs12>
+      <v-img :src="images.sample"></v-img>
+    </v-flex>
+
+    <v-flex xs12 class="pa-3 text-uppercase text-xs-center">
+      <h4 class="title font-weight-medium">Session insights</h4>
+    </v-flex>
+
+    <v-flex xs12>
+      <ChooseSessionDate></ChooseSessionDate>
+    </v-flex>
+
+    <v-flex xs12>
+      <SessionListItem :sessionList="items"></SessionListItem>
+
+      <v-fab-transition>
+        <v-btn
+          color="deep-orange lighten-1"
+          dark
+          fixed
+          bottom
+          right
+          fab
+        >
+          <v-icon>add</v-icon>
+        </v-btn>
+      </v-fab-transition>
+
+    </v-flex>
+
   </v-layout>
 </template>
 
 <script>
+    import ChooseSessionDate from '../components/ChooseSessionDate'
+    import ChooseTeam from '../components/ChooseTeam'
+    import SessionListItem from '../components/SessionListItem'
     export default {
-      name: 'TrackSession',
+      name: 'Sessions',
+      components: {SessionListItem, ChooseTeam, ChooseSessionDate},
       data () {
         return {
-          selected: [2],
+          images: {
+            sample: require('../assets/lakers_promo.jpg')
+          },
           items: [
             {
               action: '15 min',
@@ -112,21 +119,9 @@
             }
           ]
         }
-      },
-      methods: {
-        toggle (index) {
-          const i = this.selected.indexOf(index)
-
-          if (i > -1) {
-            this.selected.splice(i, 1)
-          } else {
-            this.selected.push(index)
-          }
-        }
       }
     }
 </script>
 
 <style scoped>
-
 </style>

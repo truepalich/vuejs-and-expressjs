@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/Home'
-import TrackSession from '@/pages/TrackSession'
+import Sessions from '@/pages/Sessions'
 import SetAttendance from '@/pages/SetAttendance'
 import SetCategories from '@/pages/SetCategories'
 
@@ -15,9 +15,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/track-session',
-      name: 'TrackSession',
-      component: TrackSession
+      path: '/sessions',
+      name: 'Sessions',
+      component: Sessions
     },
     {
       path: '/set-attendance',
