@@ -13,7 +13,7 @@
           </v-list-tile-content>
 
           <v-list-tile-action>
-            <v-btn icon flat :to="{ name: 'Home' }" class="mb-2">
+            <v-btn icon flat :to="{ name: 'Session' }" class="mb-2">
               <v-icon>edit</v-icon>
             </v-btn>
             <v-btn icon flat @click="dialog = true">

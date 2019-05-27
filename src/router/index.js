@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/pages/Home'
 import Sessions from '@/pages/Sessions'
+import Session from '@/pages/Session'
 import SetAttendance from '@/pages/SetAttendance'
 import SetCategories from '@/pages/SetCategories'
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/sessions',
       name: 'Sessions',
       component: Sessions
+    },
+    {
+      path: '/session',
+      name: 'Session',
+      component: Session
     },
     {
       path: '/set-attendance',

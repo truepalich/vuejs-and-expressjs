@@ -1,45 +1,50 @@
 <template>
-  <v-layout wrap class="secondary">
+  <v-container class="pa-0 fill-height">
+    <v-layout wrap>
 
-    <v-flex xs9 class="pa-2">
-      <ChooseTeam></ChooseTeam>
-    </v-flex>
+      <v-toolbar color="secondary">
+        <v-flex xs9 class="pa-2">
+          <ChooseTeam></ChooseTeam>
+        </v-flex>
 
-    <v-flex xs3 class="text-xs-right pa-2">
-      <v-btn flat icon color="white" class="ma-0">
-        <v-icon>settings</v-icon>
-      </v-btn>
-    </v-flex>
+        <v-flex xs3 class="text-xs-right pt-2 pb-2 pr-0">
+          <v-btn flat icon color="white" class="ma-0">
+            <v-icon>settings</v-icon>
+          </v-btn>
+        </v-flex>
+      </v-toolbar>
 
-    <v-flex xs12>
-      <v-img :src="images.sample"></v-img>
-    </v-flex>
+      <v-flex xs12>
+        <v-img :src="images.sample"></v-img>
+      </v-flex>
 
-    <v-flex xs12 class="pt-3">
-      <h4 class="title font-weight-medium text-uppercase text-xs-center white--text">Session insights</h4>
-      <ChooseSessionDate></ChooseSessionDate>
-    </v-flex>
+      <v-flex xs12 class="pt-3">
+        <h4 class="title font-weight-medium text-uppercase text-xs-center white--text">Session insights</h4>
+        <ChooseSessionDate></ChooseSessionDate>
+      </v-flex>
 
-    <v-flex xs12>
-      <SessionListItem :sessionList="items"></SessionListItem>
-      <div style="height: 90px;"></div>
+      <v-flex xs12>
+        <SessionListItem :sessionList="items"></SessionListItem>
+        <div style="height: 90px;"></div>
 
-      <v-fab-transition>
-        <v-btn
-          color="deep-orange lighten-1"
-          dark
-          fixed
-          bottom
-          right
-          fab
-        >
-          <v-icon>add</v-icon>
-        </v-btn>
-      </v-fab-transition>
+        <v-fab-transition>
+          <v-btn
+            color="deep-orange lighten-1"
+            dark
+            fixed
+            bottom
+            right
+            fab
+            :to="{ name: 'Session' }"
+          >
+            <v-icon class="d-flex">add</v-icon>
+          </v-btn>
+        </v-fab-transition>
 
-    </v-flex>
+      </v-flex>
 
-  </v-layout>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>

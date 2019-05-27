@@ -1,9 +1,5 @@
 <template>
-  <v-layout
-    align-center
-    row
-    class="white"
-  >
+  <v-container class="pa-0 fill-height">
     <v-flex class="text-xs-center">
       <img src="../assets/LuceoSports-Logo.png" alt="Luceo Sports">
       <div></div>
@@ -14,8 +10,7 @@
         class="mt-5"
       ></v-progress-circular>
     </v-flex>
-
-  </v-layout>
+  </v-container>
 </template>
 
 <script>

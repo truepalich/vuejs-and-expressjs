@@ -1,9 +1,9 @@
 <template>
   <v-app dark>
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
-    <v-container fill-height class="pa-0">
+
       <router-view></router-view>
-    </v-container>
+
   </v-app>
 </template>
 
@@ -15,7 +15,8 @@ export default {
 
 <style>
 .container {
-  max-width: 960px;
+  /*max-width: 960px;*/
+  max-width: 680px;
 }
 
 body {
