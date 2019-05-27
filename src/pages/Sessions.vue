@@ -15,7 +15,7 @@
       </v-toolbar>
 
       <v-flex xs12>
-        <v-img :src="images.sample"></v-img>
+        <router-link :to="{ name: 'Home' }"><v-img :src="images.sample"></v-img></router-link>
       </v-flex>
 
       <v-flex xs12 class="pt-3">
