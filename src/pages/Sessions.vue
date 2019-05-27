@@ -1,12 +1,12 @@
 <template>
-  <v-layout wrap>
+  <v-layout wrap class="secondary">
 
-    <v-flex xs9 class="pa-1">
+    <v-flex xs9 class="pa-2">
       <ChooseTeam></ChooseTeam>
     </v-flex>
 
-    <v-flex xs3 class="text-xs-right pa-1">
-      <v-btn flat icon color="deep-orange lighten-2" class="ma-0">
+    <v-flex xs3 class="text-xs-right pa-2">
+      <v-btn flat icon color="white" class="ma-0">
         <v-icon>settings</v-icon>
       </v-btn>
     </v-flex>
@@ -15,16 +15,14 @@
       <v-img :src="images.sample"></v-img>
     </v-flex>
 
-    <v-flex xs12 class="pa-3 text-uppercase text-xs-center">
-      <h4 class="title font-weight-medium">Session insights</h4>
-    </v-flex>
-
-    <v-flex xs12>
+    <v-flex xs12 class="pt-3">
+      <h4 class="title font-weight-medium text-uppercase text-xs-center white--text">Session insights</h4>
       <ChooseSessionDate></ChooseSessionDate>
     </v-flex>
 
     <v-flex xs12>
       <SessionListItem :sessionList="items"></SessionListItem>
+      <div style="height: 90px;"></div>
 
       <v-fab-transition>
         <v-btn

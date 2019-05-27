@@ -1,9 +1,10 @@
 <template>
   <div>
-    <div v-for="(item, index) in sessionList">
-      <v-list two-line class="py-0">
+    <div v-for="(item, index) in sessionList" >
+      <v-list two-line class="ma-0 pa-0">
         <v-list-tile
           :key="item.title"
+          class="py-2"
         >
           <v-list-tile-content>
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
@@ -12,10 +13,10 @@
           </v-list-tile-content>
 
           <v-list-tile-action>
-            <v-btn icon flat color="deep-orange lighten-2">
+            <v-btn icon flat :to="{ name: 'Home' }" class="mb-2">
               <v-icon>edit</v-icon>
             </v-btn>
-            <v-btn icon flat color="deep-orange lighten-2" >
+            <v-btn icon flat @click="dialog = true">
               <v-icon>comment</v-icon>
             </v-btn>
           </v-list-tile-action>
@@ -26,6 +27,41 @@
         ></v-divider>
       </v-list>
     </div>
+
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <v-card>
+        <v-card-title
+          class="headline"
+        >
+          Comments
+        </v-card-title>
+
+
+        <v-card-text>
+          <p><b>1.</b> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+          <p><b>2.</b> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+          <p><b>3.</b> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            flat
+            @click="dialog = false"
+          >
+            Close
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+
   </div>
 </template>
 
@@ -35,7 +71,7 @@
       props: ['sessionList'],
       data () {
         return {
-
+          dialog: false
         }
       },
       methods: {

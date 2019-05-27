@@ -1,7 +1,7 @@
 <template>
-  <v-container grid-list-md>
+  <v-container grid-list-md class="pb-0">
     <v-layout row wrap>
-      <v-flex xs6>
+      <v-flex xs5>
         <v-menu
           ref="menu1"
           v-model="menu1"
@@ -22,13 +22,14 @@
               prepend-icon="event"
               @blur="date = parseDate(dateFormatted)"
               v-on="on"
+              dark
             ></v-text-field>
           </template>
           <v-date-picker v-model="date" no-title @input="menu1 = false"></v-date-picker>
         </v-menu>
       </v-flex>
 
-      <v-flex xs6>
+      <v-flex xs5>
         <v-menu
           v-model="menu2"
           :close-on-content-click="false"
@@ -48,10 +49,17 @@
               prepend-icon="event"
               readonly
               v-on="on"
+              dark
             ></v-text-field>
           </template>
           <v-date-picker v-model="date" no-title @input="menu2 = false"></v-date-picker>
         </v-menu>
+      </v-flex>
+
+      <v-flex xs2 class="align-center justify-center d-flex">
+        <v-btn flat icon color="white" class="ma-0">
+          <v-icon>filter_list</v-icon>
+        </v-btn>
       </v-flex>
 
       <v-flex xs12>
@@ -59,6 +67,7 @@
           :items="items"
           label="Session History"
           solo
+          light
         ></v-select>
       </v-flex>
 

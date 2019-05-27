@@ -25,7 +25,6 @@
       created: function () {
         setTimeout(() => {
           this.$router.push({ name: 'Sessions' })
-          console.log('done')
         }, 2000)
       }
     }

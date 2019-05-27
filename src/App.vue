@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app >
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
     <v-container fill-height class="pa-0">
       <router-view></router-view>
