@@ -14,7 +14,7 @@ export default {
 <style>
 .container {
   /*max-width: 960px;*/
-  max-width: 680px;
+  max-width: 375px;
 }
 
 body {
