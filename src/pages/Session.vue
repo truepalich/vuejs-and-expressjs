@@ -23,6 +23,11 @@
         </v-btn-toggle>
       </v-flex>
 
+      <v-flex xs12 class="pa-3">
+        <v-switch v-model="people" label="John" value="John"></v-switch>
+        <v-switch v-model="people" label="Jacob" value="Jacob"></v-switch>
+      </v-flex>
+
 
       <v-flex xs12 class="pa-3">
         <v-select
@@ -32,6 +37,8 @@
           light
         ></v-select>
       </v-flex>
+
+
 
       <v-flex xs12>
         <div style="height: 90px;"></div>
@@ -59,7 +66,7 @@
             bottom
             right
             fab
-            :to="{ name: 'Home' }"
+            :to="{ name: 'Sessions' }"
           >
             <v-icon class="d-flex">navigate_next</v-icon>
           </v-btn>
@@ -110,7 +117,8 @@
         return {
           text: 'team',
           items: ['Session History', 'Bar', 'Fizz', 'Buzz'],
-          dialog: false
+          dialog: false,
+          people: ['John']
         }
       }
     }
