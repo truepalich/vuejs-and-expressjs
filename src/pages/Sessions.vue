@@ -1,5 +1,8 @@
 <template>
   <v-container class="pa-0 fill-height">
+
+    <Preloader></Preloader>
+
     <v-layout wrap>
 
       <v-toolbar color="secondary">
@@ -15,7 +18,7 @@
       </v-toolbar>
 
       <v-flex xs12>
-        <router-link :to="{ name: 'Home' }"><v-img :src="images.sample"></v-img></router-link>
+        <v-img :src="images.sample"></v-img>
       </v-flex>
 
       <v-flex xs12 class="pt-3">
@@ -51,9 +54,10 @@
     import ChooseSessionDate from '../components/ChooseSessionDate'
     import ChooseTeam from '../components/ChooseTeam'
     import SessionListItem from '../components/SessionListItem'
+    import Preloader from '../components/Preloader'
     export default {
       name: 'Sessions',
-      components: {SessionListItem, ChooseTeam, ChooseSessionDate},
+      components: {Preloader, SessionListItem, ChooseTeam, ChooseSessionDate},
       data () {
         return {
           images: {
@@ -127,4 +131,5 @@
 </script>
 
 <style scoped>
+
 </style>

@@ -1,7 +1,8 @@
 <template>
   <v-app dark>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
-    <router-view></router-view>
+    <v-flex xl4 offset-xl4>
+      <router-view></router-view>
+    </v-flex>
   </v-app>
 </template>
 
@@ -12,10 +13,10 @@ export default {
 </script>
 
 <style>
-.container {
-  /*max-width: 960px;*/
-  max-width: 375px;
-}
+/*.container {*/
+  /*!*max-width: 960px;*!*/
+  /*max-width: 375px;*/
+/*}*/
 
 body {
   margin: 0;
