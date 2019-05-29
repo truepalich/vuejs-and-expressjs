@@ -26,7 +26,7 @@
         <ChooseSessionDate></ChooseSessionDate>
       </v-flex>
 
-      <v-flex xs12>
+      <v-flex xs12 justify-end>
         <SessionListItem :sessionList="items"></SessionListItem>
         <div style="height: 90px;"></div>
 
