@@ -101,7 +101,7 @@
             bottom
             right
             fab
-            :to="{ name: 'Sessions' }"
+            :to="{ name: 'LogIndividuals' }"
           >
             <v-icon class="d-flex">navigate_next</v-icon>
           </v-btn>
@@ -183,7 +183,5 @@
 </script>
 
 <style scoped>
-  .custom-btn-toggle.v-btn-toggle .v-btn {
-    /*opacity: 1;*/
-  }
+
 </style>

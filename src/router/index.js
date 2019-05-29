@@ -3,12 +3,13 @@ import Router from 'vue-router'
 // import Home from '@/pages/Home'
 import Sessions from '@/pages/Sessions'
 import Session from '@/pages/Session'
-import SetAttendance from '@/pages/SetAttendance'
+import LogIndividuals from '@/pages/LogIndividuals'
 import SetCategories from '@/pages/SetCategories'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     // {
     //   path: '/',
@@ -26,9 +27,9 @@ export default new Router({
       component: Session
     },
     {
-      path: '/set-attendance',
-      name: 'SetAttendance',
-      component: SetAttendance
+      path: '/log-individuals',
+      name: 'LogIndividuals',
+      component: LogIndividuals
     },
     {
       path: '/set-categories',
