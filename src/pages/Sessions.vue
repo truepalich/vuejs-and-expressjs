@@ -61,7 +61,7 @@
       data () {
         return {
           images: {
-            sample: require('../assets/lakers_promo.jpg')
+            sample: require('../assets/knicks_promo.jpg')
           },
           items: [
             {

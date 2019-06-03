@@ -42,6 +42,26 @@
         ></v-select>
       </v-flex>
 
+      <v-flex xs12 class="pt-3 px-3">
+        <v-radio-group v-model="intensity" row>
+          <v-radio
+            label="Light"
+            color="light-blue"
+            value="light"
+          ></v-radio>
+          <v-radio
+            label="Intermediate"
+            color="green"
+            value="intermediate"
+          ></v-radio>
+          <v-radio
+            label="Hard"
+            color="orange"
+            value="hard"
+          ></v-radio>
+        </v-radio-group>
+      </v-flex>
+
       <v-flex xs6 class="pl-3">
         <v-chip label color="secondary" text-color="white" class="d-block pa-2 ml-0">
           <v-icon left>label</v-icon>Frequent Tag 1
@@ -147,7 +167,6 @@
             Add Tag
           </v-card-title>
 
-
           <v-card-text>
             <v-text-field placeholder="Please, add tag..."></v-text-field>
           </v-card-text>
@@ -176,7 +195,7 @@
           dialogComment: false,
           dialogAddTag: false,
           frequentTypes: ['Frequent type 2', 'Frequent type 6'],
-          loading: false
+          intensity: 'light'
         }
       }
     }

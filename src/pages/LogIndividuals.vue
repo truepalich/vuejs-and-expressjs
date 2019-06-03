@@ -100,7 +100,7 @@
             bottom
             right
             fab
-            :to="{ name: 'Sessions' }"
+            :to="{ name: 'SessionFocus' }"
           >
             <v-icon class="d-flex">navigate_next</v-icon>
           </v-btn>

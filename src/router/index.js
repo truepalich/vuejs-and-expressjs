@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Sessions from '@/pages/Sessions'
 import Session from '@/pages/Session'
 import LogIndividuals from '@/pages/LogIndividuals'
+import SessionFocus from '@/pages/SessionFocus'
 import SetCategories from '@/pages/SetCategories'
 
 Vue.use(Router)
@@ -29,6 +30,11 @@ export default new Router({
       path: '/log-individuals',
       name: 'LogIndividuals',
       component: LogIndividuals
+    },
+    {
+      path: '/session-focus',
+      name: 'SessionFocus',
+      component: SessionFocus
     },
     {
       path: '/set-categories',
