@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+### Demo: https://truepalich.github.io/vuejs-and-expressjs/dist/#/
+
 ## Build Setup
 
 ``` bash
