@@ -76,7 +76,6 @@
         </v-chip>
       </v-flex>
 
-
       <v-flex xs12 class="pt-3">
         <v-flex xs12 class="pt-3 px-3">
           <v-select
@@ -122,67 +121,107 @@
           players: [
             {
               number: '#11',
+              active: false,
               avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-              action: '15 min',
-              headline: 'Brunch this weekend?',
               title: 'Ali Connorss',
-              subtitle: "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?"
+              params: [
+                { label: 'Mindset (End)', val: 50 },
+                { label: 'Mindset (Start)', val: 75 },
+                { label: 'Receptivity', val: 25 },
+                { label: 'Engagement', val: 0 },
+                { label: 'Comprehension', val: 33 }
+              ]
             },
             {
               number: '#12',
+              active: false,
               avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-              action: '2 hr',
-              headline: 'Summer BBQs',
               title: 'me, Scrott, Jennifers',
-              subtitle: "Wish I could come, but I'm out of town this weekend."
+              params: [
+                { label: 'Mindset (End)', val: 50 },
+                { label: 'Mindset (Start)', val: 75 },
+                { label: 'Receptivity', val: 25 },
+                { label: 'Engagement', val: 0 },
+                { label: 'Comprehension', val: 33 }
+              ]
             },
             {
               number: '#22',
+              active: false,
               avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-              action: '6 hr',
-              headline: 'Oui oui',
               title: 'Sandra Adamss',
-              subtitle: 'Do you have Paris recommendations? Have you ever been?'
+              params: [
+                { label: 'Mindset (End)', val: 50 },
+                { label: 'Mindset (Start)', val: 75 },
+                { label: 'Receptivity', val: 25 },
+                { label: 'Engagement', val: 0 },
+                { label: 'Comprehension', val: 33 }
+              ]
             },
             {
               number: '#43',
+              active: false,
               avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-              action: '12 hr',
-              headline: 'Birthday gift',
               title: 'Trevor Hansens',
-              subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+              params: [
+                { label: 'Mindset (End)', val: 50 },
+                { label: 'Mindset (Start)', val: 75 },
+                { label: 'Receptivity', val: 25 },
+                { label: 'Engagement', val: 0 },
+                { label: 'Comprehension', val: 33 }
+              ]
             },
             {
               number: '#11',
+              active: false,
               avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-              action: '15 min',
-              headline: 'Brunch this weekend?',
               title: 'Ali Connorss',
-              subtitle: "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?"
+              params: [
+                { label: 'Mindset (End)', val: 50 },
+                { label: 'Mindset (Start)', val: 75 },
+                { label: 'Receptivity', val: 25 },
+                { label: 'Engagement', val: 0 },
+                { label: 'Comprehension', val: 33 }
+              ]
             },
             {
               number: '#12',
+              active: false,
               avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-              action: '2 hr',
-              headline: 'Summer BBQs',
               title: 'me, Scrott, Jennifers',
-              subtitle: "Wish I could come, but I'm out of town this weekend."
+              params: [
+                { label: 'Mindset (End)', val: 50 },
+                { label: 'Mindset (Start)', val: 75 },
+                { label: 'Receptivity', val: 25 },
+                { label: 'Engagement', val: 0 },
+                { label: 'Comprehension', val: 33 }
+              ]
             },
             {
               number: '#22',
+              active: false,
               avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-              action: '6 hr',
-              headline: 'Oui oui',
               title: 'Sandra Adamss',
-              subtitle: 'Do you have Paris recommendations? Have you ever been?'
+              params: [
+                { label: 'Mindset (End)', val: 50 },
+                { label: 'Mindset (Start)', val: 75 },
+                { label: 'Receptivity', val: 25 },
+                { label: 'Engagement', val: 0 },
+                { label: 'Comprehension', val: 33 }
+              ]
             },
             {
               number: '#43',
+              active: false,
               avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-              action: '12 hr',
-              headline: 'Birthday gift',
               title: 'Trevor Hansens',
-              subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+              params: [
+                { label: 'Mindset (End)', val: 50 },
+                { label: 'Mindset (Start)', val: 75 },
+                { label: 'Receptivity', val: 25 },
+                { label: 'Engagement', val: 0 },
+                { label: 'Comprehension', val: 33 }
+              ]
             }
           ]
         }

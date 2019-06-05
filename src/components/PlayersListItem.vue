@@ -1,69 +1,49 @@
 <template>
-  <div>
-
-    <!--<v-list>-->
-      <!--<v-list-group-->
-        <!--v-for="item in items"-->
-        <!--:key="item.title"-->
-        <!--v-model="item.active"-->
-        <!--:prepend-icon="item.action"-->
-        <!--no-action-->
-      <!--&gt;-->
-        <!--<template v-slot:activator>-->
-          <!--<v-list-item-content>-->
-            <!--<v-list-item-title v-text="item.title"></v-list-item-title>-->
-          <!--</v-list-item-content>-->
-        <!--</template>-->
-
-        <!--<v-list-item-->
-          <!--v-for="subItem in item.items"-->
-          <!--:key="subItem.title"-->
-          <!--@click=""-->
-        <!--&gt;-->
-          <!--<v-list-item-content>-->
-            <!--<v-list-item-title v-text="subItem.title"></v-list-item-title>-->
-          <!--</v-list-item-content>-->
-        <!--</v-list-item>-->
-      <!--</v-list-group>-->
-    <!--</v-list>-->
-
-    <div v-for="(item, index) in players" >
-      <v-list two-line class="ma-0 pa-0">
-        <v-list-tile
+  <div class="player-list-item">
+    <div v-for="item in players">
+      <v-list two-line expand class="py-0">
+        <v-list-group
           :key="item.title"
-          class="py-2"
+          v-model="item.active"
+          no-action
         >
-          <v-list-tile-avatar class="d-flex column" size="55">
-            <img :src="item.avatar">
-          </v-list-tile-avatar>
+          <template v-slot:activator>
+            <v-list-tile class="py-2">
+              <v-list-tile-avatar class="d-flex column" size="55">
+                <img :src="item.avatar">
+              </v-list-tile-avatar>
+              <v-list-tile-content class="pl-4">
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                <v-list-tile-sub-title class="text--primary">
+                  <v-btn icon flat class="mb-2 secondary ml-0">
+                    <v-icon>local_hotel</v-icon>
+                  </v-btn>
+                  <v-btn icon flat class="mb-2 secondary" @click="dialogIntensity = true">
+                    <v-icon>local_hospital</v-icon>
+                  </v-btn>
+                  <v-btn icon flat class="mb-2 secondary" @click="dialogComment = true">
+                    <v-icon>comment</v-icon>
+                  </v-btn>
+                  <v-btn icon flat class="mb-2 secondary" @click="dialogAddTag = true">
+                    <v-icon>local_offer</v-icon>
+                  </v-btn>
+                </v-list-tile-sub-title>
+              </v-list-tile-content>
+              <v-list-tile-action class="font-weight-bold">
+                {{ item.number }}
+              </v-list-tile-action>
+            </v-list-tile>
+          </template>
 
-          <v-list-tile-content class="ml-4">
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            <v-list-tile-sub-title class="text--primary">
-              <v-btn icon flat class="mb-2 secondary">
-                <v-icon>local_hotel</v-icon>
-              </v-btn>
-              <v-btn icon flat class="mb-2 secondary" @click="dialogIntensity = true">
-                <v-icon>local_hospital</v-icon>
-              </v-btn>
-              <v-btn icon flat class="mb-2 secondary" @click="dialogComment = true">
-                <v-icon>comment</v-icon>
-              </v-btn>
-              <v-btn icon flat class="mb-2 secondary" @click="dialogAddTag = true">
-                <v-icon>local_offer</v-icon>
-              </v-btn>
-            </v-list-tile-sub-title>
-          </v-list-tile-content>
+          <v-flex xs12 v-for="param in item.params" :key="param.label" class="px-4">
+            <v-subheader class="pa-0">{{ param.label }}</v-subheader>
+            <v-slider v-model="param.val" class="ma-0"></v-slider>
+          </v-flex>
 
-          <v-list-tile-action class="font-weight-bold">
-            {{ item.number }}
-          </v-list-tile-action>
-        </v-list-tile>
-        <v-divider
-          v-if="index + 1 < players.length"
-          :key="index"
-        ></v-divider>
+        </v-list-group>
       </v-list>
+
+      <v-divider></v-divider>
     </div>
 
     <v-dialog
@@ -215,45 +195,14 @@
           dialogComment: false,
           dialogAddTag: false,
           dialogIntensity: false,
-          intensity: 'light',
-          items: [
-            {
-              action: 'local_activity',
-              title: 'Attractions',
-              items: [
-                { title: 'List Item' }
-              ]
-            },
-            {
-              action: 'restaurant',
-              title: 'Dining',
-              active: true,
-              items: [
-                { title: 'Breakfast & brunch' },
-                { title: 'New American' },
-                { title: 'Sushi' }
-              ]
-            },
-            {
-              action: 'school',
-              title: 'Education',
-              items: [
-                { title: 'List Item' }
-              ]
-            },
-            {
-              action: 'directions_run',
-              title: 'Family',
-              items: [
-                { title: 'List Item' }
-              ]
-            }
-          ]
+          intensity: 'light'
         }
       }
     }
 </script>
 
 <style scoped>
-
+  .player-list-item .v-subheader {
+    height: 30px;
+  }
 </style>

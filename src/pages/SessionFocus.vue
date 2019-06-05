@@ -13,11 +13,11 @@
 
       <v-flex xs4 class="pt-3 text-xs-center" v-for="item in skills" v-bind:key="item.name">
         <v-badge overlap color="secondary" >
-          <template v-slot:badge v-if="item.tags">
+          <template v-slot:badge v-if="item.tags.length > 0">
             <v-icon>local_offer</v-icon>
           </template>
           <v-avatar
-            v-if="item.tags"
+            v-if="item.tags.length > 0"
             color="primary"
             @click="showDialogOfTags('consistTags')"
           >
@@ -38,8 +38,8 @@
       <v-flex xs4 class="pt-3 text-xs-center" >
         <v-badge overlap color="secondary" >
           <v-avatar
-            color="secondary"
-            @click="showDialogOfTags"
+            color="primary darken-1"
+            @click="dialogAddSkill = true"
           >
             <v-icon dark>add_circle</v-icon>
           </v-avatar>
@@ -126,6 +126,38 @@
       </v-dialog>
 
 
+      <v-dialog
+        v-model="dialogAddSkill"
+        width="500"
+      >
+        <v-card>
+          <v-card-title
+            class="headline"
+          >
+            Add Skill
+          </v-card-title>
+
+          <v-card-text>
+            <v-layout row>
+              <v-flex xs9>
+                <v-text-field v-model="newSkillField" placeholder="Create a new skill..."></v-text-field>
+              </v-flex>
+              <v-flex xs3>
+                <!--<v-btn color="primary darken-1" @click="dialogAddSkill = false" block>+Add</v-btn>-->
+                <v-btn color="primary darken-1" @click="addNewSkill()" block>+Add</v-btn>
+              </v-flex>
+            </v-layout>
+          </v-card-text>
+
+          <v-divider></v-divider>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" flat @click="dialogAddSkill = false">Close</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
 
       <v-dialog
         v-model="dialogSaveSession"
@@ -167,80 +199,10 @@
       data () {
         return {
           dialogSaveSession: false,
+          dialogAddSkill: false,
           dialogAddTag: false,
           consistTags: false,
-          skills: [
-            {
-              name: 'Skill name 1',
-              avatar: 'offline_bolt',
-              tags: true
-            },
-            {
-              name: 'Skill name 2',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 3',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 4',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 5',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 6',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 7',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 8',
-              avatar: 'offline_bolt',
-              tags: true
-            },
-            {
-              name: 'Skill name 9',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 10',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 11',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 12',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 13',
-              avatar: 'offline_bolt',
-              tags: false
-            },
-            {
-              name: 'Skill name 14',
-              avatar: 'offline_bolt',
-              tags: false
-            }
-          ]
+          newSkillField: ''
         }
       },
       methods: {
@@ -251,6 +213,26 @@
             this.consistTags = false
           }
           this.dialogAddTag = true
+        },
+
+        addNewSkill: function () {
+          if (this.newSkillField !== '' && this.newSkillField !== null && this.newSkillField !== undefined) {
+            let obj = {
+              name: this.newSkillField,
+              tags: []
+            }
+            let allSkills = this.skills
+            allSkills.push(obj)
+            this.$store.commit('setSkills', allSkills)
+            this.newSkillField = ''
+          }
+          this.dialogAddSkill = false
+          return true
+        }
+      },
+      computed: {
+        skills () {
+          return this.$store.getters.getSkills
         }
       }
     }
