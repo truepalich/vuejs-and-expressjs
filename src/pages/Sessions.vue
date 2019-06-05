@@ -126,6 +126,15 @@
             }
           ]
         }
+      },
+      created: function () {
+        this.$store.commit('increment')
+        this.$store.commit('increment')
+        console.log(this.$store.state.count)
+        const todos = this.$store.getters.doneTodos
+        console.log(todos)
+        console.log(this.$store.getters.doneTodosCount)
+        console.log(this.$store.getters.getTodoById(2))
       }
     }
 </script>
