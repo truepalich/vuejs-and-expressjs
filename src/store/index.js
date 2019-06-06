@@ -11,17 +11,26 @@ export default new Vuex.Store({
       { id: 2, text: '...', done: false }
     ],
     skills: [
-      { name: 'Skill 1', tags: [] },
-      { name: 'Skill 2', tags: [] },
-      { name: 'Skill 3', tags: ['1', '2'] },
-      { name: 'Skill 4', tags: [] },
-      { name: 'Skill 5', tags: [] },
-      { name: 'Skill 6', tags: ['1', '2'] },
-      { name: 'Skill 7', tags: [] },
-      { name: 'Skill 8', tags: [] },
-      { name: 'Skill 9', tags: ['1', '2'] },
-      { name: 'Skill 10', tags: [] },
-      { name: 'Skill 11', tags: [] }
+      { id: '1', name: 'Skill 1', tags: [] },
+      { id: '2', name: 'Skill 2', tags: [] },
+      { id: '3', name: 'Skill 3', tags: ['1', '2'] },
+      { id: '4', name: 'Skill 4', tags: [] },
+      { id: '5', name: 'Skill 5', tags: [] },
+      { id: '6', name: 'Skill 6', tags: [] },
+      { id: '7', name: 'Skill 7', tags: ['1', '2'] },
+      { id: '8', name: 'Skill 8', tags: [] },
+      { id: '9', name: 'Skill 9', tags: [] },
+      { id: '11', name: 'Skill 11', tags: [] }
+    ],
+    tags: [
+      { id: '1', name: 'Frequent Tag 1' },
+      { id: '2', name: 'Frequent Tag 2' },
+      { id: '3', name: 'Frequent Tag 3' },
+      { id: '4', name: 'Frequent Tag 4' },
+      { id: '5', name: 'Frequent Tag 5' },
+      { id: '6', name: 'Frequent Tag 6' },
+      { id: '7', name: 'Frequent Tag 7' },
+      { id: '8', name: 'Frequent Tag 8' }
     ]
   },
   mutations: {
@@ -30,6 +39,9 @@ export default new Vuex.Store({
     },
     setSkills (state, payload) {
       state.skills = payload
+    },
+    setTags (state, payload) {
+      state.tags = payload
     }
   },
   actions: {
@@ -49,6 +61,9 @@ export default new Vuex.Store({
     },
     getSkills: (state, getters) => {
       return state.skills
+    },
+    getTags: (state, getters) => {
+      return state.tags
     }
   }
 })

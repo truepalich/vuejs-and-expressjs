@@ -11,22 +11,23 @@
 
       <v-flex xs12 class="pa-2"></v-flex>
 
-      <v-flex xs4 class="pt-3 text-xs-center" v-for="item in skills" v-bind:key="item.name">
+      <v-flex xs4 class="pt-3 text-xs-center" v-for="item in skills" :key="item.name">
         <v-badge overlap color="secondary" >
           <template v-slot:badge v-if="item.tags.length > 0">
             <v-icon>local_offer</v-icon>
           </template>
+
           <v-avatar
             v-if="item.tags.length > 0"
             color="primary"
-            @click="showDialogOfTags('consistTags')"
+            @click="showTagsOfSkill(item)"
           >
             <v-icon dark>offline_bolt</v-icon>
           </v-avatar>
           <v-avatar
             v-else
             color="secondary"
-            @click="showDialogOfTags"
+            @click="showTagsOfSkill(item)"
           >
             <v-icon dark>offline_bolt</v-icon>
           </v-avatar>
@@ -68,50 +69,78 @@
           <v-card-text>
             <v-layout row>
               <v-flex xs9>
-                <v-text-field placeholder="Create a new tag..."></v-text-field>
+                <v-text-field v-model="newTagField" placeholder="Create a new tag..."></v-text-field>
               </v-flex>
               <v-flex xs3>
-                <v-btn color="primary darken-1" @click="dialogAddTag = false" block>+Add</v-btn>
+                <!--<v-btn color="primary darken-1" @click="dialogAddTag = false" block>+Add</v-btn>-->
+                <v-btn color="primary darken-1" @click="addNewTag()" block>+Add</v-btn>
               </v-flex>
             </v-layout>
 
-            <v-layout row>
-              <v-flex xs6>
-                <v-chip label color="secondary" text-color="white" class="d-block pa-2 ml-0">
-                  <v-icon left>label</v-icon>Frequent Tag 1
-                </v-chip>
-                <v-chip label color="secondary" text-color="white" class="d-block pa-2 ml-0">
-                  <v-icon left>label</v-icon>Frequent Tag 3
-                </v-chip>
-                <v-chip label color="secondary" text-color="white" class="d-block pa-2 ml-0">
-                  <v-icon left>label</v-icon>Frequent Tag 5
-                </v-chip>
-                <v-chip label v-if="consistTags" color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">
-                  <v-icon left>label</v-icon>Frequent Tag 7
-                </v-chip>
-                <v-chip label v-else color="secondary" text-color="white" class="d-block pa-2 ml-0">
-                  <v-icon left>label</v-icon>Frequent Tag 7
-                </v-chip>
-              </v-flex>
-              <v-flex xs6>
-                <v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">
-                  <v-icon left>label</v-icon>Frequent Tag 2
+            <v-layout wrap>
+              <v-flex xs6 v-for="item in tags" :key="item.name">
+                <!--<div v-for="ct in clickedSkill.tags">-->
+                  <!--<v-chip v-if="item.id == ct" label color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">-->
+                    <!--<v-icon left>label</v-icon>{{ item.name }}-->
+                  <!--</v-chip>-->
+                  <!--<v-chip v-else label color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
+                    <!--<v-icon left>label</v-icon>{{ item.name }}-->
+                  <!--</v-chip>-->
+                <!--</div>-->
+
+                <v-chip v-if="consistTags" label color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">
+                  <v-icon left>label</v-icon>{{ item.name }}
                 </v-chip>
 
-                <v-chip label v-if="consistTags" color="secondary darken-2" text-color="white" class="d-block pa-2 mr-0">
-                  <v-icon left>label</v-icon>Frequent Tag 4
-                </v-chip>
-                <v-chip label v-else color="secondary" text-color="white" class="d-block pa-2 mr-0">
-                  <v-icon left>label</v-icon>Frequent Tag 4
+                <v-chip v-else label color="secondary" text-color="white" class="d-block pa-2 ml-0">
+                  <v-icon left>label</v-icon>{{ item.name }}
                 </v-chip>
 
-                <v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">
-                  <v-icon left>label</v-icon>Frequent Tag 6
-                </v-chip>
-                <v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">
-                  <v-icon left>label</v-icon>Frequent Tag 8
-                </v-chip>
+                <!--<v-chip label v-if="item.active == true" color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">-->
+                  <!--<v-icon left>label</v-icon>{{ item.name }}-->
+                <!--</v-chip>-->
+                <!--<v-chip label v-else color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
+                  <!--<v-icon left>label</v-icon>{{ item.name }}-->
+                <!--</v-chip>-->
+
               </v-flex>
+
+              <!--<v-flex xs6>-->
+                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
+                  <!--<v-icon left>label</v-icon>Frequent Tag 1-->
+                <!--</v-chip>-->
+                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
+                  <!--<v-icon left>label</v-icon>Frequent Tag 3-->
+                <!--</v-chip>-->
+                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
+                  <!--<v-icon left>label</v-icon>Frequent Tag 5-->
+                <!--</v-chip>-->
+                <!--<v-chip label v-if="consistTags" color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">-->
+                  <!--<v-icon left>label</v-icon>Frequent Tag 7-->
+                <!--</v-chip>-->
+                <!--<v-chip label v-else color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
+                  <!--<v-icon left>label</v-icon>Frequent Tag 7-->
+                <!--</v-chip>-->
+              <!--</v-flex>-->
+              <!--<v-flex xs6>-->
+                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">-->
+                  <!--<v-icon left>label</v-icon>Frequent Tag 2-->
+                <!--</v-chip>-->
+
+                <!--<v-chip label v-if="consistTags" color="secondary darken-2" text-color="white" class="d-block pa-2 mr-0">-->
+                  <!--<v-icon left>label</v-icon>Frequent Tag 4-->
+                <!--</v-chip>-->
+                <!--<v-chip label v-else color="secondary" text-color="white" class="d-block pa-2 mr-0">-->
+                  <!--<v-icon left>label</v-icon>Frequent Tag 4-->
+                <!--</v-chip>-->
+
+                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">-->
+                  <!--<v-icon left>label</v-icon>Frequent Tag 6-->
+                <!--</v-chip>-->
+                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">-->
+                  <!--<v-icon left>label</v-icon>Frequent Tag 8-->
+                <!--</v-chip>-->
+              <!--</v-flex>-->
             </v-layout>
 
           </v-card-text>
@@ -120,7 +149,8 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" flat @click="dialogAddTag = false; consistTags = false">Close</v-btn>
+            <!--<v-btn color="primary" flat @click="dialogAddTag = false; consistTags = false">Close</v-btn>-->
+            <v-btn color="primary" flat @click="dialogAddTag = false; consistTags = false; clickedSkill = {}">Close</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -202,37 +232,87 @@
           dialogAddSkill: false,
           dialogAddTag: false,
           consistTags: false,
-          newSkillField: ''
+          newSkillField: '',
+          newTagField: '',
+          clickedSkill: {}
         }
       },
       methods: {
-        showDialogOfTags: function (tags) {
-          if (tags === 'consistTags') {
+        // showDialogOfTags: function (tags) {
+        //   if (tags === 'consistTags') {
+        //     this.consistTags = true
+        //   } else {
+        //     this.consistTags = false
+        //   }
+        //   this.dialogAddTag = true
+        // },
+
+        showTagsOfSkill: function (skill) {
+          // this.clickedSkill = skill
+
+          if (skill.tags.length > 0) {
             this.consistTags = true
           } else {
             this.consistTags = false
           }
           this.dialogAddTag = true
+          // if (tagsArr === 'consistTags') {
+          //   this.consistTags = true
+          // } else {
+          //   this.consistTags = false
+          // }
+          // this.dialogAddTag = true
         },
 
         addNewSkill: function () {
           if (this.newSkillField !== '' && this.newSkillField !== null && this.newSkillField !== undefined) {
             let obj = {
               name: this.newSkillField,
-              tags: []
+              tags: [],
+              id: Date.now()
             }
             let allSkills = this.skills
-            allSkills.push(obj)
+            allSkills.unshift(obj)
             this.$store.commit('setSkills', allSkills)
             this.newSkillField = ''
           }
           this.dialogAddSkill = false
+          return true
+        },
+
+        addNewTag: function () {
+          if (this.newTagField !== '' && this.newTagField !== null && this.newTagField !== undefined) {
+            let obj = {
+              name: this.newTagField,
+              id: Date.now()
+            }
+            let allTags = this.tags
+            allTags.unshift(obj)
+            this.$store.commit('setTags', allTags)
+            this.newTagField = ''
+          }
           return true
         }
       },
       computed: {
         skills () {
           return this.$store.getters.getSkills
+        },
+        tags () {
+          // let resultTags = []
+          // let tagsForSkill = this.$store.getters.getTags
+          // for (let item of tagsForSkill) {
+          //   for (let ct of this.clickedSkill.tags) {
+          //     if (item.id === ct) {
+          //       resultTags.push({name: item, active: true})
+          //     } else {
+          //       resultTags.push({name: item, active: false})
+          //     }
+          //   }
+          //   break
+          // }
+          // return resultTags
+          return this.$store.getters.getTags
         }
       }
     }
