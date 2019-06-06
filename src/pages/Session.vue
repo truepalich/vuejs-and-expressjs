@@ -42,6 +42,10 @@
         ></v-select>
       </v-flex>
 
+      <v-flex xs12 class="pa-3">
+        <Autocomplete></Autocomplete>
+      </v-flex>
+
       <v-flex xs12 class="pt-3 px-3">
         <v-radio-group v-model="intensity" row>
           <v-radio
@@ -186,8 +190,10 @@
 </template>
 
 <script>
+    import Autocomplete from '../components/Autocomplete'
     export default {
       name: 'Session',
+      components: {Autocomplete},
       data () {
         return {
           btnToggle: 'Team',
