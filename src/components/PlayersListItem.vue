@@ -1,13 +1,16 @@
 <template>
   <div class="player-list-item">
     <div v-for="item in players">
-      <v-list two-line expand class="py-0">
+      <v-list two-line class="py-0">
+        <!--expand-->
+        <!--v-model="item.active"-->
         <v-list-group
           :key="item.title"
-          v-model="item.active"
           no-action
+
         >
           <template v-slot:activator>
+          <!--<template>-->
             <v-list-tile class="py-2">
               <v-list-tile-avatar class="d-flex column" size="55">
                 <img :src="item.avatar">
@@ -18,13 +21,13 @@
                   <v-btn icon flat class="mb-2 secondary ml-0">
                     <v-icon>local_hotel</v-icon>
                   </v-btn>
-                  <v-btn icon flat class="mb-2 secondary" @click="dialogIntensity = true">
+                  <v-btn icon flat class="mb-2 secondary ml-0" @click.stop="dialogIntensity = true">
                     <v-icon>local_hospital</v-icon>
                   </v-btn>
-                  <v-btn icon flat class="mb-2 secondary" @click="dialogComment = true">
+                  <v-btn icon flat class="mb-2 secondary ml-0" @click.stop="dialogComment = true">
                     <v-icon>comment</v-icon>
                   </v-btn>
-                  <v-btn icon flat class="mb-2 secondary" @click="dialogAddTag = true">
+                  <v-btn icon flat class="mb-2 secondary ml-0" @click.stop="dialogAddTag = true">
                     <v-icon>local_offer</v-icon>
                   </v-btn>
                 </v-list-tile-sub-title>

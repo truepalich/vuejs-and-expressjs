@@ -56,7 +56,7 @@
         </v-menu>
       </v-flex>
 
-      <v-flex xs2 class="align-center justify-center d-flex">
+      <v-flex xs2 class="align-center justify-center pt-3">
         <v-btn flat icon color="white" class="ma-0">
           <v-icon>filter_list</v-icon>
         </v-btn>
@@ -67,7 +67,6 @@
           :items="items"
           label="Session History"
           solo
-          light
         ></v-select>
       </v-flex>
 

@@ -76,15 +76,22 @@
         </v-chip>
       </v-flex>
 
-      <v-flex xs12 class="pt-3">
-        <v-flex xs12 class="pt-3 px-3">
-          <v-select
-            :items="items"
-            label="NBA Players"
-            solo
-          ></v-select>
-        </v-flex>
+      <v-flex xs12 class="pt-2"></v-flex>
 
+      <v-flex xs10 class="pt-3 pl-4 pr-3">
+        <v-select
+          :items="items"
+          label="NBA Players"
+          solo
+        ></v-select>
+      </v-flex>
+      <v-flex xs2 class="align-center justify-center pt-4">
+        <v-btn flat icon color="white" class="ma-0">
+          <v-icon>filter_list</v-icon>
+        </v-btn>
+      </v-flex>
+
+      <v-flex xs12>
         <PlayersListItem :players="players"></PlayersListItem>
       </v-flex>
 

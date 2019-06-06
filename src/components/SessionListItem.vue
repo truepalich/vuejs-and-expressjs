@@ -5,6 +5,7 @@
         <v-list-tile
           :key="item.title"
           class="py-2"
+          :to="{ name: 'Session' }"
         >
           <v-list-tile-content>
             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
@@ -16,7 +17,7 @@
             <v-btn icon flat :to="{ name: 'Session' }" class="mb-2">
               <v-icon>edit</v-icon>
             </v-btn>
-            <v-btn icon flat @click="dialog = true">
+            <v-btn icon flat @click.prevent="dialog = true">
               <v-icon>comment</v-icon>
             </v-btn>
           </v-list-tile-action>
@@ -38,7 +39,6 @@
         >
           Comments
         </v-card-title>
-
 
         <v-card-text>
           <p><b>1.</b> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>

@@ -69,7 +69,7 @@
           <v-card-text>
             <v-layout row>
               <v-flex xs9>
-                <v-text-field v-model="newTagField" placeholder="Create a new tag..."></v-text-field>
+                <v-text-field v-model="newTagField" placeholder="Create a new tag..." v-on:keyup.13="addNewTag()"></v-text-field>
               </v-flex>
               <v-flex xs3>
                 <!--<v-btn color="primary darken-1" @click="dialogAddTag = false" block>+Add</v-btn>-->
@@ -170,7 +170,7 @@
           <v-card-text>
             <v-layout row>
               <v-flex xs9>
-                <v-text-field v-model="newSkillField" placeholder="Create a new skill..."></v-text-field>
+                <v-text-field v-model="newSkillField" placeholder="Create a new skill..." v-on:keyup.13="addNewSkill()"></v-text-field>
               </v-flex>
               <v-flex xs3>
                 <!--<v-btn color="primary darken-1" @click="dialogAddSkill = false" block>+Add</v-btn>-->
