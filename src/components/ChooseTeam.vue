@@ -7,6 +7,7 @@
     prepend-icon="group"
     single-line
     class="ma-0 pa-0"
+    v-model="team"
   ></v-select>
 </template>
 
@@ -15,6 +16,7 @@
       name: 'ChooseTeam',
       data () {
         return {
+          team: 'New York Knicks',
           states: [
             'Atlanta Hawks',
             'Boston Celtics',

@@ -1,6 +1,16 @@
 <template>
   <v-container grid-list-md class="pb-0">
     <v-layout row wrap>
+
+      <v-flex xs12>
+        <v-select
+          :items="items"
+          label="Session History"
+          solo
+        ></v-select>
+      </v-flex>
+
+
       <v-flex xs5>
         <v-menu
           ref="menu1"
@@ -25,7 +35,7 @@
               dark
             ></v-text-field>
           </template>
-          <v-date-picker v-model="date" no-title @input="menu1 = false"></v-date-picker>
+          <v-date-picker v-model="date" no-title @input="menu1 = false" min="2019-06-01" max="2019-06-07"></v-date-picker>
         </v-menu>
       </v-flex>
 
@@ -52,7 +62,7 @@
               dark
             ></v-text-field>
           </template>
-          <v-date-picker v-model="date" no-title @input="menu2 = false"></v-date-picker>
+          <v-date-picker v-model="date" no-title @input="menu2 = false" min="2019-06-01" max="2019-06-07"></v-date-picker>
         </v-menu>
       </v-flex>
 
@@ -62,13 +72,7 @@
         </v-btn>
       </v-flex>
 
-      <v-flex xs12>
-        <v-select
-          :items="items"
-          label="Session History"
-          solo
-        ></v-select>
-      </v-flex>
+
 
     </v-layout>
   </v-container>
