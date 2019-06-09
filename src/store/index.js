@@ -23,14 +23,14 @@ export default new Vuex.Store({
       { id: '11', name: 'Skill 11', tags: [] }
     ],
     tags: [
-      { id: '1', name: 'Frequent Tag 1' },
-      { id: '2', name: 'Frequent Tag 2' },
-      { id: '3', name: 'Frequent Tag 3' },
-      { id: '4', name: 'Frequent Tag 4' },
-      { id: '5', name: 'Frequent Tag 5' },
-      { id: '6', name: 'Frequent Tag 6' },
-      { id: '7', name: 'Frequent Tag 7' },
-      { id: '8', name: 'Frequent Tag 8' }
+      { id: '1', name: 'Frequent Tag 1', frequent: true },
+      { id: '2', name: 'Frequent Tag 2', frequent: true },
+      { id: '3', name: 'Frequent Tag 3', frequent: true },
+      { id: '4', name: 'Frequent Tag 4', frequent: true },
+      { id: '5', name: 'Frequent Tag 5', frequent: false },
+      { id: '6', name: 'Frequent Tag 6', frequent: false },
+      { id: '7', name: 'Frequent Tag 7', frequent: false },
+      { id: '8', name: 'Frequent Tag 8', frequent: false }
     ]
   },
   mutations: {
@@ -64,6 +64,12 @@ export default new Vuex.Store({
     },
     getTags: (state, getters) => {
       return state.tags
+    },
+    getFrequentTags: state => {
+      return state.tags.filter(tag => tag.frequent === true)
+    },
+    getNonFrequentTags: state => {
+      return state.tags.filter(tag => tag.frequent === false)
     }
   }
 })

@@ -15,7 +15,7 @@
 
 <script>
     export default {
-      name: 'Autocomplete',
+      name: 'AutocompleteLocation',
       data () {
         return {
           loading: false,
