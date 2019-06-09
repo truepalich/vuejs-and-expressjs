@@ -95,72 +95,107 @@
             {
               date: '06/01/2019',
               sessionType: 'Practice',
-              headline: 'Brunch this weekend?',
               title: 'Ali Connorss',
-              subtitle: "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?"
+              attendance: [
+                { id: '1', name: 'John Snow' },
+                { id: '2', name: 'James Bond' },
+                { id: '3', name: 'Tom Cruze' },
+                { id: '4', name: 'Jenifer Aniston' }
+              ]
             },
             {
               date: '06/02/2019',
               sessionType: 'Team Workout',
-              headline: 'Summer BBQs',
               title: 'me, Scrott, Jennifers',
-              subtitle: "Wish I could come, but I'm out of town this weekend."
+              attendance: [
+                { id: '7', name: 'Tom Cruze' },
+                { id: '5', name: 'John Snow' },
+                { id: '8', name: 'Jenifer Aniston' }
+              ]
             },
             {
               date: '06/03/2019',
               sessionType: 'Team Workout',
-              headline: 'Oui oui',
               title: 'Sandra Adamss',
-              subtitle: 'Do you have Paris recommendations? Have you ever been?'
+              attendance: [
+                { id: '20', name: 'John Snow' },
+                { id: '21', name: 'James Bond' },
+                { id: '22', name: 'Tom Cruze' },
+                { id: '23', name: 'Jenifer Aniston' }
+              ]
             },
             {
               date: '06/04/2019',
               sessionType: 'Film study',
-              headline: 'Birthday gift',
               title: 'Trevor Hansens',
-              subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+              attendance: [
+                { id: '24', name: 'Tom Cruze' },
+                { id: '25', name: 'John Snow' },
+                { id: '26', name: 'Jenifer Aniston' }
+              ]
             },
             {
               date: '06/05/2019',
               sessionType: 'Team Workout',
-              headline: 'Recipe to try',
               title: 'Britta Holts',
-              subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+              attendance: [
+                { id: '31', name: 'John Snow' },
+                { id: '32', name: 'James Bond' },
+                { id: '33', name: 'Tom Cruze' },
+                { id: '34', name: 'Jenifer Aniston' }
+              ]
             },
             {
               date: '06/06/2019',
               sessionType: 'Team Workout',
-              headline: 'Brunch this weekend?',
               title: 'Ali Connors',
-              subtitle: "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?"
+              attendance: [
+                { id: '37', name: 'Tom Cruze' },
+                { id: '35', name: 'John Snow' },
+                { id: '38', name: 'Jenifer Aniston' }
+              ]
             },
             {
-              date: '2 hr',
+              date: '06/07/2019',
               sessionType: 'Practice',
-              headline: 'Summer BBQ',
               title: 'me, Scrott, Jennifer',
-              subtitle: "Wish I could come, but I'm out of town this weekend."
+              attendance: [
+                { id: '41', name: 'John Snow' },
+                { id: '42', name: 'James Bond' },
+                { id: '43', name: 'Tom Cruze' },
+                { id: '44', name: 'Jenifer Aniston' }
+              ]
             },
             {
               date: '06/07/2019',
               sessionType: 'Team Workout',
-              headline: 'Oui oui',
               title: 'Sandra Adams',
-              subtitle: 'Do you have Paris recommendations? Have you ever been?'
+              attendance: [
+                { id: '47', name: 'Tom Cruze' },
+                { id: '45', name: 'John Snow' },
+                { id: '48', name: 'Jenifer Aniston' }
+              ]
             },
             {
               date: '06/08/2019',
               sessionType: 'Film study',
-              headline: 'Birthday gift',
               title: 'Trevor Hansen',
-              subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+              attendance: [
+                { id: '51', name: 'John Snow' },
+                { id: '52', name: 'James Bond' },
+                { id: '53', name: 'Tom Cruze' },
+                { id: '54', name: 'Jenifer Aniston' }
+              ]
             },
             {
               date: '06/09/2019',
               sessionType: 'Practice',
-              headline: 'Recipe to try',
               title: 'Britta Holt',
-              subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+              attendance: [
+                { id: '57', name: 'Tom Cruze' },
+                { id: '55', name: 'John Snow' },
+                { id: '58', name: 'Jenifer Aniston' }
+              ]
             }
           ]
         }
