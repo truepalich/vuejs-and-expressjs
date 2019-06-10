@@ -93,9 +93,9 @@
                   bottom
                   left
                   fab
-                  @click="dialogComment = true"
+                  @click="dialogNote = true"
           >
-            <v-icon class="d-flex">comment</v-icon>
+            <v-icon class="d-flex">note_add</v-icon>
           </v-btn>
         </v-fab-transition>
 
@@ -116,39 +116,27 @@
       </v-flex>
 
       <v-dialog
-              v-model="dialogComment"
+              v-model="dialogNote"
               width="500"
       >
         <v-card>
           <v-card-title
                   class="headline"
           >
-            06/01/2019 - Practice
+            Add Note
           </v-card-title>
           <v-card-text>
-            <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-              <br/><b>06/01/2019 - <i>Jason Stadham</i></b>
-            </p>
-            <p>
-              It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-              <br/><b>06/01/2019 - <i>Jason Stadham</i></b>
-            </p>
-
             <v-layout row>
-              <v-flex xs9>
-                <v-text-field placeholder="Please type new comment..."></v-text-field>
-              </v-flex>
-              <v-flex xs3>
-                <v-btn color="primary darken-1" block>+Add</v-btn>
+              <v-flex xs12>
+                <v-text-field placeholder="Please type new note..."></v-text-field>
               </v-flex>
             </v-layout>
-
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" flat @click="dialogComment = false">Close</v-btn>
+            <v-btn color="primary darken-1" @click="dialogNote = false">Save</v-btn>
+            <v-btn color="primary" flat @click="dialogNote = false">Close</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -194,7 +182,7 @@
       return {
         btnToggle: 'Team',
         sessionTypes: ['Practice', 'Team Workout', 'Film study', 'Indiv. Film Study'],
-        dialogComment: false,
+        dialogNote: false,
         dialogAddTag: false,
         frequentTypes: ['Frequent type 2', 'Frequent type 6'],
         intensity: 2,

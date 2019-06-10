@@ -26,7 +26,7 @@
 
       <v-flex xs12 class="pt-3">
         <h4 class="title font-weight-medium text-uppercase text-xs-center white--text">Session insights</h4>
-        <ChooseSessionDate></ChooseSessionDate>
+        <ActionWithSessions></ActionWithSessions>
       </v-flex>
 
       <v-flex xs12 justify-end>
@@ -78,13 +78,13 @@
 </template>
 
 <script>
-    import ChooseSessionDate from '../components/ChooseSessionDate'
+    import ActionWithSessions from '../components/ActionWithSessions'
     import ChooseTeam from '../components/ChooseTeam'
     import SessionListItem from '../components/SessionListItem'
     import Preloader from '../components/Preloader'
     export default {
       name: 'Sessions',
-      components: {Preloader, SessionListItem, ChooseTeam, ChooseSessionDate},
+      components: {Preloader, SessionListItem, ChooseTeam, ActionWithSessions},
       data () {
         return {
           dialogSettings: false,
@@ -93,7 +93,7 @@
           },
           items: [
             {
-              date: '06/01/2019',
+              date: '1 June 2019',
               sessionType: 'Practice',
               title: 'Ali Connorss',
               attendance: [
@@ -104,17 +104,17 @@
               ]
             },
             {
-              date: '06/02/2019',
+              date: '2 June 2019',
               sessionType: 'Team Workout',
               title: 'me, Scrott, Jennifers',
-              attendance: [
-                { id: '7', name: 'Tom Cruze' },
-                { id: '5', name: 'John Snow' },
-                { id: '8', name: 'Jenifer Aniston' }
+              attendance2: [
+                { id: '7', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
+                { id: '5', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
+                { id: '8', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' }
               ]
             },
             {
-              date: '06/03/2019',
+              date: '3 June 2019',
               sessionType: 'Team Workout',
               title: 'Sandra Adamss',
               attendance: [
@@ -125,17 +125,20 @@
               ]
             },
             {
-              date: '06/04/2019',
+              date: '4 June 2019',
               sessionType: 'Film study',
               title: 'Trevor Hansens',
-              attendance: [
-                { id: '24', name: 'Tom Cruze' },
-                { id: '25', name: 'John Snow' },
-                { id: '26', name: 'Jenifer Aniston' }
+              attendance2: [
+                { id: '71', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' },
+                { id: '72', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg' },
+                { id: '73', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg' },
+                { id: '74', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg' },
+                { id: '75', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg' },
+                { id: '76', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg' }
               ]
             },
             {
-              date: '06/05/2019',
+              date: '5 June 2019',
               sessionType: 'Team Workout',
               title: 'Britta Holts',
               attendance: [
@@ -146,7 +149,7 @@
               ]
             },
             {
-              date: '06/06/2019',
+              date: '6 June 2019',
               sessionType: 'Team Workout',
               title: 'Ali Connors',
               attendance: [
@@ -156,7 +159,7 @@
               ]
             },
             {
-              date: '06/07/2019',
+              date: '7 June 2019',
               sessionType: 'Practice',
               title: 'me, Scrott, Jennifer',
               attendance: [
@@ -167,7 +170,7 @@
               ]
             },
             {
-              date: '06/07/2019',
+              date: '7 June 2019',
               sessionType: 'Team Workout',
               title: 'Sandra Adams',
               attendance: [
@@ -177,7 +180,7 @@
               ]
             },
             {
-              date: '06/08/2019',
+              date: '8 June 2019',
               sessionType: 'Film study',
               title: 'Trevor Hansen',
               attendance: [
@@ -188,7 +191,7 @@
               ]
             },
             {
-              date: '06/09/2019',
+              date: '9 June 2019',
               sessionType: 'Practice',
               title: 'Britta Holt',
               attendance: [

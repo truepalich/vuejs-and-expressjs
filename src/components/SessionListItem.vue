@@ -8,14 +8,25 @@
           :to="{ name: 'Session' }"
         >
           <v-list-tile-content>
-            <v-list-tile-title class="ml-1">{{ item.date }} {{ item.sessionType }}</v-list-tile-title>
+            <v-list-tile-title class="ml-1">{{ item.date }} - {{ item.sessionType }}</v-list-tile-title>
             <v-list-tile-sub-title>
-              <v-chip color="secondary" text-color="white" small v-for="person in item.attendance" :key="person.id">
-                <v-avatar>
-                  <v-icon>account_circle</v-icon>
+              <div v-if="item.attendance">
+                <v-chip color="secondary" text-color="white" small v-for="person in item.attendance" :key="person.id">
+                  {{ person.name }}
+                </v-chip>
+              </div>
+              <div v-else>
+                <v-avatar class="mt-2 mr-2 mb-2" v-for="p in item.attendance2" :key="p.id"
+                  size="26px"
+                >
+                  <img
+                    v-if="p.avatar"
+                    :src="p.avatar"
+                    alt="Avatar"
+                  >
                 </v-avatar>
-                {{ person.name }}
-              </v-chip>
+              </div>
+
             </v-list-tile-sub-title>
           </v-list-tile-content>
 
@@ -50,19 +61,15 @@
         <v-card-text>
           <p>
             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-            <br/><b>06/01/2019 - <i>Jason Stadham</i></b>
+            <br/><b>1 June 2019 - <i>Jason Stadham</i></b>
           </p>
           <p>
             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-            <br/><b>06/01/2019 - <i>Jason Stadham</i></b>
+            <br/><b>2 June 2019 - <i>Jason Stadham</i></b>
           </p>
-
           <v-layout row>
-            <v-flex xs9>
+            <v-flex xs12>
               <v-text-field placeholder="Please type new comment..."></v-text-field>
-            </v-flex>
-            <v-flex xs3>
-              <v-btn color="primary darken-1" block>+Add</v-btn>
             </v-flex>
           </v-layout>
 
@@ -72,6 +79,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
+          <v-btn color="primary darken-1" @click="dialogComment = false">Save</v-btn>
           <v-btn
             color="primary"
             flat
