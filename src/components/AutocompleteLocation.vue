@@ -8,7 +8,7 @@
     hide-no-data
     hide-details
     label="What state are you from?"
-    prepend-icon="location_on"
+    append-outer-icon="location_on"
     solo
   ></v-autocomplete>
 </template>
