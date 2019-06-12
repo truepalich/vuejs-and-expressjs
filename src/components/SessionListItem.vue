@@ -8,7 +8,7 @@
           :to="{ name: 'Session' }"
         >
           <v-list-tile-content>
-            <v-list-tile-title class="ml-1">{{ item.date }} - {{ item.sessionType }}</v-list-tile-title>
+            <v-list-tile-title class="ml-1">{{ item.date }} - <span class="primary--text">{{ item.sessionType }}</span></v-list-tile-title>
             <v-list-tile-sub-title>
               <div v-if="item.attendance">
                 <v-chip color="secondary" text-color="white" small v-for="person in item.attendance" :key="person.id">
@@ -53,19 +53,19 @@
     >
       <v-card>
         <v-card-title
-          class="headline"
+          class="headline d-block"
         >
-          {{ dialogCommentData.date }} - {{ dialogCommentData.sessionType }}
+          <span class="d-block">{{ dialogCommentData.date }}</span> <span class="primary--text d-block">{{ dialogCommentData.sessionType }}</span>
         </v-card-title>
 
         <v-card-text>
           <p>
             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-            <br/><b>1 June 2019 - <i>Jason Stadham</i></b>
+            <br/><b>06/01/2019, 12:12 PM - <i>Jason Stadham</i></b>
           </p>
           <p>
             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-            <br/><b>2 June 2019 - <i>Jason Stadham</i></b>
+            <br/><b>06/02/2019, 12:12 PM - <i>Jason Stadham</i></b>
           </p>
           <v-layout row>
             <v-flex xs12>

@@ -93,7 +93,7 @@
           },
           items: [
             {
-              date: '1 June 2019',
+              date: '06/01/2019, 12:12 PM',
               sessionType: 'Practice',
               title: 'Ali Connorss',
               attendance: [
@@ -104,7 +104,7 @@
               ]
             },
             {
-              date: '2 June 2019',
+              date: '06/02/2019, 12:12 PM',
               sessionType: 'Team Workout',
               title: 'me, Scrott, Jennifers',
               attendance2: [
@@ -114,7 +114,7 @@
               ]
             },
             {
-              date: '3 June 2019',
+              date: '06/03/2019, 12:12 PM',
               sessionType: 'Team Workout',
               title: 'Sandra Adamss',
               attendance: [
@@ -125,7 +125,7 @@
               ]
             },
             {
-              date: '4 June 2019',
+              date: '06/04/2019, 12:12 PM',
               sessionType: 'Film study',
               title: 'Trevor Hansens',
               attendance2: [
@@ -138,7 +138,7 @@
               ]
             },
             {
-              date: '5 June 2019',
+              date: '06/05/2019, 12:12 PM',
               sessionType: 'Team Workout',
               title: 'Britta Holts',
               attendance: [
@@ -149,7 +149,7 @@
               ]
             },
             {
-              date: '6 June 2019',
+              date: '06/05/2019, 12:12 PM',
               sessionType: 'Team Workout',
               title: 'Ali Connors',
               attendance: [
@@ -159,7 +159,7 @@
               ]
             },
             {
-              date: '7 June 2019',
+              date: '06/07/2019, 12:12 PM',
               sessionType: 'Practice',
               title: 'me, Scrott, Jennifer',
               attendance: [
@@ -170,7 +170,7 @@
               ]
             },
             {
-              date: '7 June 2019',
+              date: '06/08/2019, 12:12 PM',
               sessionType: 'Team Workout',
               title: 'Sandra Adams',
               attendance: [
@@ -180,7 +180,7 @@
               ]
             },
             {
-              date: '8 June 2019',
+              date: '06/09/2019, 12:12 PM',
               sessionType: 'Film study',
               title: 'Trevor Hansen',
               attendance: [
@@ -191,7 +191,7 @@
               ]
             },
             {
-              date: '9 June 2019',
+              date: '06/10/2019, 12:12 PM',
               sessionType: 'Practice',
               title: 'Britta Holt',
               attendance: [

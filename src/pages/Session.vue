@@ -9,7 +9,7 @@
         <v-toolbar-title class="ml-1">View Session</v-toolbar-title>
       </v-toolbar>
 
-      <v-flex xs12 class="px-3 pb-2 pt-3">
+      <v-flex xs12 class="px-3 pb-3 pt-3">
         <v-btn-toggle class="d-flex custom-btn-toggle" v-model="btnToggle" mandatory>
           <v-btn flat large value="Team">
             <v-icon class="mr-2">supervised_user_circle</v-icon>
@@ -37,7 +37,7 @@
       <!--<v-switch class="align-center justify-center" color="primary" v-model="frequentTypes" label="Frequent type 6" value="Frequent type 6"></v-switch>-->
       <!--</v-flex>-->
 
-      <v-flex xs12 class="px-3 py-2">
+      <v-flex xs12 class="px-3 py-3">
         <v-select
                 :items="sessionTypes"
                 label="Session Type"
@@ -46,22 +46,89 @@
         ></v-select>
       </v-flex>
 
-      <v-flex xs12 class="px-3 py-2">
+      <v-flex xs12 class="px-3 py-3">
         <AutocompleteLocation></AutocompleteLocation>
       </v-flex>
 
-      <v-flex xs12 class="px-4 pb-3 pt-4">
-        <v-slider
-                class="intensity-slider"
-                v-model="intensity"
-                :tick-labels="intensityLabels"
-                max="4"
-                step="1"
-                tick-size="3"
-                :color="color"
-                always-dirty
-                thumb-label="always"
-        ></v-slider>
+      <v-flex xs12 class="px-3 pt-3 pb-4">
+        <!--<v-slider-->
+                <!--class="intensity-slider"-->
+                <!--v-model="intensity"-->
+                <!--:tick-labels="intensityLabels"-->
+                <!--max="4"-->
+                <!--step="1"-->
+                <!--tick-size="3"-->
+                <!--:color="color"-->
+                <!--always-dirty-->
+                <!--thumb-label="always"-->
+        <!--&gt;</v-slider>-->
+        <v-bottom-nav
+        :active.sync="bottomNav"
+        :color="color"
+        :value="true"
+        dark
+        shift
+      >
+        <v-btn dark>
+          <span>Observing</span>
+          <v-icon>looks_one</v-icon>
+        </v-btn>
+
+        <v-btn dark>
+          <span>Medical rehab</span>
+          <v-icon>looks_two</v-icon>
+        </v-btn>
+
+        <v-btn dark>
+          <span>Light contact</span>
+          <v-icon>looks_3</v-icon>
+        </v-btn>
+
+        <v-btn dark>
+          <span>No contact</span>
+          <v-icon>looks_4</v-icon>
+        </v-btn>
+
+        <v-btn dark>
+          <span>Full contact</span>
+          <v-icon>looks_5</v-icon>
+        </v-btn>
+      </v-bottom-nav>
+
+
+        <v-bottom-nav
+          :active.sync="bottomNav"
+          :color="color"
+          :value="true"
+          dark
+          shift
+          class="mt-4"
+        >
+          <v-btn dark>
+            <span>Observing</span>
+            <v-icon>mdi-battery-20</v-icon>
+          </v-btn>
+
+          <v-btn dark>
+            <span>Medical rehab</span>
+            <v-icon>mdi-battery-40</v-icon>
+          </v-btn>
+
+          <v-btn dark>
+            <span>Light contact</span>
+            <v-icon>mdi-battery-60</v-icon>
+          </v-btn>
+
+          <v-btn dark>
+            <span>No contact</span>
+            <v-icon>mdi-battery-80</v-icon>
+          </v-btn>
+
+          <v-btn dark>
+            <span>Full contact</span>
+            <v-icon>mdi-battery</v-icon>
+          </v-btn>
+        </v-bottom-nav>
       </v-flex>
 
       <v-flex xs6 class="px-3" v-for="tag in frequentTags" :key="tag.id">
@@ -69,6 +136,7 @@
           <v-icon left>label</v-icon>{{ tag.name }}
         </v-chip>
       </v-flex>
+
       <!--<v-flex xs6 class="pr-3">-->
         <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">-->
           <!--<v-icon left>label</v-icon>Frequent Tag 2-->
@@ -128,7 +196,7 @@
           <v-card-text>
             <v-layout row>
               <v-flex xs12>
-                <v-text-field placeholder="Please type new note..."></v-text-field>
+                <v-textarea placeholder="Please type new note..."></v-textarea>
               </v-flex>
             </v-layout>
           </v-card-text>
@@ -154,8 +222,8 @@
           </v-card-title>
 
           <v-card-text>
-            <ComboboxTags></ComboboxTags>
-            <!--<v-text-field placeholder="Please, add tag..."></v-text-field>-->
+            <!--<ComboboxTags></ComboboxTags>-->
+            <AutocompleteTags></AutocompleteTags>
           </v-card-text>
 
           <v-divider></v-divider>
@@ -175,11 +243,13 @@
 <script>
   import AutocompleteLocation from '../components/AutocompleteLocation'
   import ComboboxTags from '../components/ComboboxTags'
+  import AutocompleteTags from '../components/AutocompleteTags'
   export default {
     name: 'Session',
-    components: {AutocompleteLocation, ComboboxTags},
+    components: {AutocompleteTags, AutocompleteLocation, ComboboxTags},
     data () {
       return {
+        bottomNav: 2,
         btnToggle: 'Team',
         sessionTypes: ['Practice', 'Team Workout', 'Film study', 'Indiv. Film Study'],
         dialogNote: false,
@@ -197,12 +267,21 @@
       }
     },
     computed: {
+      // color () {
+      //   if (this.intensity === 4) return 'green'
+      //   if (this.intensity === 3) return 'yellow darken-3'
+      //   if (this.intensity === 2) return 'red darken-1'
+      //   if (this.intensity === 1) return 'deep-orange'
+      //   return 'black'
+      // },
       color () {
-        if (this.intensity === 4) return 'green'
-        if (this.intensity === 3) return 'yellow darken-3'
-        if (this.intensity === 2) return 'red darken-1'
-        if (this.intensity === 1) return 'deep-orange'
-        return 'black'
+        switch (this.bottomNav) {
+          case 0: return 'black'
+          case 1: return 'deep-orange'
+          case 2: return 'red darken-1'
+          case 3: return 'yellow darken-3'
+          case 4: return 'green'
+        }
       },
       tags () {
         return this.$store.getters.getTags

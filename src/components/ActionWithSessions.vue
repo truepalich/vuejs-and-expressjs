@@ -25,18 +25,19 @@
         >
           <template v-slot:activator="{ on }">
             <v-text-field
-              v-model="dateFormatted"
+              v-model="computedSevenDaysAgoFormatted"
               label="From"
               persistent-hint
               prepend-icon="event"
-              @blur="date = parseDate(dateFormatted)"
               v-on="on"
               dark
             ></v-text-field>
           </template>
-          <v-date-picker v-model="date" no-title @input="menu1 = false" min="2019-06-01" max="2019-06-07"></v-date-picker>
+          <v-date-picker v-model="dateSevenDaysAgo" no-title @input="menu1 = false" :min="dateSevenDaysAgo" :max="date"></v-date-picker>
         </v-menu>
       </v-flex>
+
+      <v-flex xs1></v-flex>
 
       <v-flex xs5>
         <v-menu
@@ -61,11 +62,11 @@
               dark
             ></v-text-field>
           </template>
-          <v-date-picker v-model="date" no-title @input="menu2 = false" min="2019-06-01" :max="dateFormatted"></v-date-picker>
+          <v-date-picker v-model="date" no-title @input="menu2 = false" :min="dateSevenDaysAgo" :max="date"></v-date-picker>
         </v-menu>
       </v-flex>
 
-      <v-flex xs2 class="align-center justify-center pt-3">
+      <v-flex xs1 class="align-center justify-center pt-3">
         <v-btn flat icon color="white" class="ma-0" @click="dialogFilter = true">
           <v-icon>filter_list</v-icon>
         </v-btn>
@@ -167,8 +168,16 @@
       }),
 
       computed: {
+        dateSevenDaysAgo () {
+          const d = new Date()
+          d.setDate(d.getDate() - 7)
+          return d.toISOString().substr(0, 10)
+        },
         computedDateFormatted () {
           return this.formatDate(this.date)
+        },
+        computedSevenDaysAgoFormatted () {
+          return this.formatDate(this.dateSevenDaysAgo)
         }
       },
 
