@@ -59,17 +59,13 @@
         </v-card-title>
 
         <v-card-text>
-          <p>
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          <p v-for="comment in comments">
+            {{ comment.text }}
             <br/><b>06/01/2019, 12:12 PM - <i>Jason Stadham</i></b>
-          </p>
-          <p>
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-            <br/><b>06/02/2019, 12:12 PM - <i>Jason Stadham</i></b>
           </p>
           <v-layout row>
             <v-flex xs12>
-              <v-text-field placeholder="Please type new comment..."></v-text-field>
+              <v-text-field v-model="newCommentField" placeholder="Please type new comment..."></v-text-field>
             </v-flex>
           </v-layout>
 
@@ -79,7 +75,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary darken-1" @click="dialogComment = false">Save</v-btn>
+          <v-btn color="primary darken-1" @click="addNewComment()">Add</v-btn>
           <v-btn
             color="primary"
             flat
@@ -100,13 +96,32 @@
       data () {
         return {
           dialogComment: false,
-          dialogCommentData: {}
+          dialogCommentData: {},
+          newCommentField: ''
+        }
+      },
+      computed: {
+        comments () {
+          return this.$store.getters.getComments
         }
       },
       methods: {
         showCommentDialog (sessionInfo) {
           this.dialogCommentData = sessionInfo
           this.dialogComment = true
+        },
+        addNewComment: function () {
+          if (this.newCommentField !== '' && this.newCommentField !== null && this.newCommentField !== undefined) {
+            let obj = {
+              text: this.newCommentField,
+              id: Date.now()
+            }
+            let allComments = this.comments
+            allComments.push(obj)
+            this.$store.commit('setComments', allComments)
+            this.newCommentField = ''
+          }
+          return true
         }
         // toggle (index) {
         //   const i = this.selected.indexOf(index)

@@ -18,6 +18,10 @@ export default {
   /*max-width: 375px;*/
 /*}*/
 
+.v-btn--bottom:not(.v-btn--absolute) {
+  bottom: 32px;
+}
+
 body {
   margin: 0;
 }

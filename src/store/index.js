@@ -23,14 +23,18 @@ export default new Vuex.Store({
       { id: '11', name: 'Skill 11', tags: [] }
     ],
     tags: [
-      { id: '1', name: 'Frequent Tag 1', frequent: true },
-      { id: '2', name: 'Frequent Tag 2', frequent: true },
-      { id: '3', name: 'Frequent Tag 3', frequent: true },
-      { id: '4', name: 'Frequent Tag 4', frequent: true },
-      { id: '5', name: 'Frequent Tag 5', frequent: false },
-      { id: '6', name: 'Frequent Tag 6', frequent: false },
-      { id: '7', name: 'Frequent Tag 7', frequent: false },
-      { id: '8', name: 'Frequent Tag 8', frequent: false }
+      { id: '1', name: 'Frequent Tag 1', frequent: true, selected: false },
+      { id: '2', name: 'Frequent Tag 2', frequent: true, selected: false },
+      { id: '3', name: 'Frequent Tag 3', frequent: true, selected: false },
+      { id: '4', name: 'Frequent Tag 4', frequent: true, selected: false },
+      { id: '5', name: 'Tag 5', frequent: false, selected: false },
+      { id: '6', name: 'Tag 6', frequent: false, selected: false },
+      { id: '7', name: 'Tag 7', frequent: false, selected: false },
+      { id: '8', name: 'Tag 8', frequent: false, selected: false }
+    ],
+    comments: [
+      { id: '1', text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.' },
+      { id: '2', text: 'A reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that.' }
     ]
   },
   mutations: {
@@ -42,6 +46,9 @@ export default new Vuex.Store({
     },
     setTags (state, payload) {
       state.tags = payload
+    },
+    setComments (state, payload) {
+      state.comments = payload
     }
   },
   actions: {
@@ -61,6 +68,9 @@ export default new Vuex.Store({
     },
     getSkills: (state, getters) => {
       return state.skills
+    },
+    getComments: (state, getters) => {
+      return state.comments
     },
     getTags: (state, getters) => {
       return state.tags

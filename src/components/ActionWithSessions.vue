@@ -114,7 +114,7 @@
                 v-for="item in attendance"
                 :key="item.title"
                 avatar
-                @click=""
+                @click="item.checked = !item.checked"
               >
 
                 <v-list-tile-avatar>
@@ -127,7 +127,7 @@
                 </v-list-tile-content>
 
                 <v-list-tile-action>
-                  <v-checkbox></v-checkbox>
+                  <v-checkbox v-model="item.checked"></v-checkbox>
                 </v-list-tile-action>
 
               </v-list-tile>
@@ -156,11 +156,11 @@
         items: ['Session History', 'Bar', 'Fizz', 'Buzz'],
         dialogFilter: false,
         attendance: [
-          { checked: true, title: 'Jason Oner', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg', number: '#12' },
+          { checked: false, title: 'Jason Oner', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg', number: '#12' },
           { checked: false, title: 'Travis Howard', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg', number: '#22' },
           { checked: false, title: 'Ali Connors', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg', number: '#42' },
           { checked: false, title: 'Cindy Baker', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg', number: '#23' },
-          { checked: true, title: 'Jason Oner1', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg', number: '#12' },
+          { checked: false, title: 'Jason Oner1', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg', number: '#12' },
           { checked: false, title: 'Travis Howard2', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg', number: '#72' },
           { checked: false, title: 'Ali Connors3', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg', number: '#02' },
           { checked: false, title: 'Cindy Baker4', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg', number: '#17' }

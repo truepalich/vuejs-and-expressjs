@@ -131,24 +131,7 @@
         </v-bottom-nav>
       </v-flex>
 
-      <v-flex xs6 class="px-3" v-for="tag in frequentTags" :key="tag.id">
-        <v-chip label color="secondary" text-color="white" class="d-block mx-0 py-2 px-1" @click="addToActiveTags(tag)">
-          <v-icon left>label</v-icon>{{ tag.name }}
-        </v-chip>
-      </v-flex>
-
-      <!--<v-flex xs6 class="pr-3">-->
-        <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">-->
-          <!--<v-icon left>label</v-icon>Frequent Tag 2-->
-        <!--</v-chip>-->
-        <!--<v-chip label color="secondary darken-2" text-color="white" class="d-block pa-2 mr-0">-->
-          <!--<v-icon left>label</v-icon>Frequent Tag 4-->
-        <!--</v-chip>-->
-      <!--</v-flex>-->
-      <v-flex xs12 class="px-3">
-        <v-btn color="primary" block large class="font-weight-bold" @click="dialogAddTag = true"><v-icon left dark>add</v-icon> Add Tag</v-btn>
-      </v-flex>
-
+      <SessionFrequentTags></SessionFrequentTags>
 
       <v-flex xs12>
         <div style="height: 90px;"></div>
@@ -196,7 +179,7 @@
           <v-card-text>
             <v-layout row>
               <v-flex xs12>
-                <v-textarea placeholder="Please type new note..."></v-textarea>
+                <v-textarea placeholder="Please type new note..." ></v-textarea>
               </v-flex>
             </v-layout>
           </v-card-text>
@@ -209,33 +192,6 @@
         </v-card>
       </v-dialog>
 
-
-      <v-dialog
-              v-model="dialogAddTag"
-              width="500"
-      >
-        <v-card>
-          <v-card-title
-                  class="headline"
-          >
-            Add Tag
-          </v-card-title>
-
-          <v-card-text>
-            <!--<ComboboxTags></ComboboxTags>-->
-            <AutocompleteTags></AutocompleteTags>
-          </v-card-text>
-
-          <v-divider></v-divider>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary darken-1" @click="dialogAddTag = false">Save</v-btn>
-            <v-btn color="primary" flat @click="dialogAddTag = false">Close</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-
     </v-layout>
   </v-container>
 </template>
@@ -244,16 +200,16 @@
   import AutocompleteLocation from '../components/AutocompleteLocation'
   import ComboboxTags from '../components/ComboboxTags'
   import AutocompleteTags from '../components/AutocompleteTags'
+  import SessionFrequentTags from '../components/SessionFrequentTags'
   export default {
     name: 'Session',
-    components: {AutocompleteTags, AutocompleteLocation, ComboboxTags},
+    components: {SessionFrequentTags, AutocompleteTags, AutocompleteLocation, ComboboxTags},
     data () {
       return {
         bottomNav: 2,
         btnToggle: 'Team',
         sessionTypes: ['Practice', 'Team Workout', 'Film study', 'Indiv. Film Study'],
         dialogNote: false,
-        dialogAddTag: false,
         frequentTypes: ['Frequent type 2', 'Frequent type 6'],
         intensity: 2,
         intensityLabels: [
@@ -262,18 +218,10 @@
           'Light contact',
           'No contact',
           'Full contact'
-        ],
-        activeTags: []
+        ]
       }
     },
     computed: {
-      // color () {
-      //   if (this.intensity === 4) return 'green'
-      //   if (this.intensity === 3) return 'yellow darken-3'
-      //   if (this.intensity === 2) return 'red darken-1'
-      //   if (this.intensity === 1) return 'deep-orange'
-      //   return 'black'
-      // },
       color () {
         switch (this.bottomNav) {
           case 0: return 'black'
@@ -282,17 +230,6 @@
           case 3: return 'yellow darken-3'
           case 4: return 'green'
         }
-      },
-      tags () {
-        return this.$store.getters.getTags
-      },
-      frequentTags () {
-        return this.$store.getters.getFrequentTags
-      }
-    },
-    methods: {
-      addToActiveTags (tag) {
-        this.activeTags.push(tag)
       }
     }
   }
