@@ -6,6 +6,7 @@ import Session from '@/pages/Session'
 import LogIndividuals from '@/pages/LogIndividuals'
 import SessionFocus from '@/pages/SessionFocus'
 import SetCategories from '@/pages/SetCategories'
+import Logout from '../pages/Logout'
 
 Vue.use(Router)
 
@@ -43,6 +44,11 @@ export default new Router({
       path: '/set-categories',
       name: 'SetCategories',
       component: SetCategories
+    },
+    {
+      path: '/logout',
+      name: 'Logout',
+      component: Logout
     }
   ],
   scrollBehavior (to, from, savedPosition) {

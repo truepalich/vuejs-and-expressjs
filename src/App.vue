@@ -22,15 +22,14 @@ export default {
   /*!*max-width: 960px;*!*/
   /*max-width: 375px;*/
 /*}*/
+.v-btn--bottom:not(.v-btn--absolute) {
+  bottom: 32px !important;
+}
 
 @media all and (display-mode: standalone) {
   .v-btn--bottom:not(.v-btn--absolute) {
     bottom: 16px !important;
   }
-}
-
-.v-btn--bottom:not(.v-btn--absolute) {
-  bottom: 32px !important;
 }
 
 body {
