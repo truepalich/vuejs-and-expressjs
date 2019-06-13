@@ -10,6 +10,9 @@ import SetCategories from '@/pages/SetCategories'
 Vue.use(Router)
 
 export default new Router({
+  hashbang: false,
+  base: '/',
+  mode: 'history',
   routes: [
     // {
     //   path: '/',

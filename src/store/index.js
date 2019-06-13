@@ -10,6 +10,7 @@ export default new Vuex.Store({
       { id: 1, text: '...', done: true },
       { id: 2, text: '...', done: false }
     ],
+    user: { family_name: 'Last name', given_name: 'First name' },
     skills: [
       { id: '1', name: 'Skill 1', tags: [] },
       { id: '2', name: 'Skill 2', tags: [] },
@@ -49,6 +50,9 @@ export default new Vuex.Store({
     },
     setComments (state, payload) {
       state.comments = payload
+    },
+    setUser (state, payload) {
+      state.user = payload
     }
   },
   actions: {
@@ -80,6 +84,9 @@ export default new Vuex.Store({
     },
     getNonFrequentTags: state => {
       return state.tags.filter(tag => tag.frequent === false)
+    },
+    getUser: (state, getters) => {
+      return state.user
     }
   }
 })

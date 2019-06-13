@@ -10,8 +10,8 @@
 export default {
   name: 'app',
   created: function () {
-    document.ontouchmove = function (event) {
-      event.preventDefault()
+    if (typeof window.user !== 'undefined') {
+      this.$store.commit('setUser', window.user)
     }
   }
 }

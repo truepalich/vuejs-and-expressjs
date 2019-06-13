@@ -13,7 +13,7 @@
         </v-flex>
 
         <v-flex xs3 class="text-xs-right pt-2 pb-2 pr-0">
-          <v-btn flat icon color="white" class="ma-0" @click="dialogSettings = true">
+          <v-btn v-if="user.family_name || user.given_name" flat icon color="white" class="ma-0" @click="dialogSettings = true">
             <v-icon>settings</v-icon>
           </v-btn>
         </v-flex>
@@ -52,24 +52,25 @@
 
       <v-dialog
         v-model="dialogSettings"
-        width="500"
+        fullscreen
+        hide-overlay
+        transition="dialog-bottom-transition"
+        scrollable
       >
-        <v-card>
-          <v-card-title
-            class="headline"
-          >
-            Cooming Soon!
-          </v-card-title>
-
+        <v-card tile>
+          <v-toolbar card dark color="secondary">
+            <v-btn icon flat dark @click="dialogSettings = false">
+              <v-icon>navigate_before</v-icon>
+            </v-btn>
+            <v-toolbar-title class="ml-1">
+              <span v-if="user.family_name">{{ user.family_name }}</span>
+              <span v-if="user.given_name">{{ user.given_name }}</span>
+            </v-toolbar-title>
+          </v-toolbar>
           <v-card-text>
+            <v-btn color="primary" large class="font-weight-bold" to="/logout" >Logout</v-btn>
           </v-card-text>
-
-          <v-divider></v-divider>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary" flat @click="dialogSettings = false">Close</v-btn>
-          </v-card-actions>
+          <div style="flex: 1 1 auto;"></div>
         </v-card>
       </v-dialog>
 
@@ -211,6 +212,11 @@
         // console.log(todos)
         // console.log(this.$store.getters.doneTodosCount)
         // console.log(this.$store.getters.getTodoById(2))
+      },
+      computed: {
+        user () {
+          return this.$store.getters.getUser
+        }
       }
     }
 </script>
