@@ -8,7 +8,12 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  created: function () {
+    document.ontouchmove = function (event) {
+      event.preventDefault()
+    }
+  }
 }
 </script>
 
@@ -18,8 +23,14 @@ export default {
   /*max-width: 375px;*/
 /*}*/
 
+@media all and (display-mode: standalone) {
+  .v-btn--bottom:not(.v-btn--absolute) {
+    bottom: 16px !important;
+  }
+}
+
 .v-btn--bottom:not(.v-btn--absolute) {
-  bottom: 32px;
+  bottom: 32px !important;
 }
 
 body {

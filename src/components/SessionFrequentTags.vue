@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap>
     <v-flex xs6 class="px-3 tag-item" v-for="tag in frequentTags" :key="tag.id">
-      <v-chip class="d-block pa-0 mx-0" color="secondary" text-color="white">
+      <v-chip class="d-block pa-0 mx-0" color="secondary" text-color="white" disabled>
         {{ tag.name }}
         <i aria-hidden="true" class="v-icon mdi mdi-close-circle theme--dark" @click="removeTag(tag)"></i>
       </v-chip>
@@ -20,7 +20,7 @@
         <!--<v-icon left>label</v-icon>{{ tag.name }}-->
       <!--</v-chip>-->
     <!--</v-flex>-->
-    <v-flex xs12 class="px-3">
+    <v-flex xs12 class="px-3 py-3">
       <v-btn color="primary" block large class="font-weight-bold" @click="dialogAddTag = true"><v-icon left dark>add</v-icon> Add Tag</v-btn>
     </v-flex>
 

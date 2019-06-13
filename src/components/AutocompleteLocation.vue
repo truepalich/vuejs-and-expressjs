@@ -1,18 +1,25 @@
 <template>
-  <v-autocomplete
-    v-model="select"
-    :loading="loading"
-    :items="items"
-    :search-input.sync="search"
-    cache-items
-    hide-no-data
-    hide-details
-    label="What state are you from?"
-    append-outer-icon="location_on"
-    solo
-  ></v-autocomplete>
+  <v-layout wrap>
+    <v-flex xs11>
+      <v-combobox
+        v-model="select"
+        :loading="loading"
+        :items="items"
+        :search-input.sync="search"
+        cache-items
+        hide-no-data
+        hide-details
+        label="What state are you from?"
+        solo
+      ></v-combobox>
+    </v-flex>
+    <v-flex xs1 class="d-flex align-center justify-center">
+      <v-btn flat icon color="white" class="ma-0" @click="getCurrentPosition()">
+        <v-icon>location_on</v-icon>
+      </v-btn>
+    </v-flex>
+  </v-layout>
 </template>
-
 <script>
     export default {
       name: 'AutocompleteLocation',
@@ -100,6 +107,18 @@
             })
             this.loading = false
           }, 500)
+        },
+        getCurrentPosition () {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+              // Get the coordinates of the current possition.
+              var lat = position.coords.latitude
+              var lng = position.coords.longitude
+              this.select = lat + ', ' + lng
+            })
+          } else {
+            this.select = 'No location found...'
+          }
         }
       }
     }
