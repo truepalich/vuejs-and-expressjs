@@ -1,59 +1,40 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs6 class="px-3 tag-item" v-for="tag in frequentTags" :key="tag.id">
-      <v-chip class="d-block pa-0 mx-0" color="secondary" text-color="white" disabled>
-        {{ tag.name }}
-        <i aria-hidden="true" class="v-icon mdi mdi-close-circle theme--dark" @click="removeTag(tag)"></i>
-      </v-chip>
-    </v-flex>
-
-    <v-flex xs12 class="px-3 py-3">
-      <v-btn color="primary" block large class="font-weight-bold" @click="dialogAddTag = true"><v-icon left dark>add</v-icon> Add Tag</v-btn>
-    </v-flex>
-
-    <v-dialog
-      v-model="dialogAddTag"
-      width="500"
-    >
-      <v-card>
-        <v-card-title
-          class="headline"
-        >
-          Add Tag
-        </v-card-title>
-
-        <v-card-text>
-          <v-combobox
-            v-model="newTagField"
-            :loading="loading"
-            :items="items"
-            :search-input.sync="search"
-            cache-items
-            hide-no-data
-            hide-details
-            label="Please start typing tag name..."
-            prepend-icon="label"
-          ></v-combobox>
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary darken-1" @click="addNewTag(), dialogAddTag = false">Add</v-btn>
-          <v-btn color="primary" flat @click="dialogAddTag = false">Close</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-layout>
+  <div>
+    <v-layout row>
+      <v-flex xs9>
+        <v-combobox
+          v-model="newTagField"
+          :loading="loading"
+          :items="items"
+          :search-input.sync="search"
+          cache-items
+          hide-no-data
+          hide-details
+          label="Please start typing tag name..."
+          prepend-icon="label"
+          class="mt-0"
+        ></v-combobox>
+      </v-flex>
+      <v-flex xs3>
+        <v-btn color="primary darken-1" @click="addNewTag()" block class="ml-2">+Add</v-btn>
+      </v-flex>
+    </v-layout>
+    <v-layout wrap mt-2>
+      <v-flex xs6 class="tag-item pt-2" v-for="tag in frequentTags" :key="tag.id">
+        <v-chip class="d-block pa-0 ma-0 mr-1 ml-1" color="secondary" text-color="white" disabled>
+          {{ tag.name }}
+          <i aria-hidden="true" class="v-icon mdi mdi-close-circle theme--dark" @click="removeTag(tag)"></i>
+        </v-chip>
+      </v-flex>
+    </v-layout>
+  </div>
 </template>
 
 <script>
     export default {
-      name: 'SessionFrequentTags',
+      name: 'Tags',
       data () {
         return {
-          dialogAddTag: false,
           loading: false,
           items: [],
           search: null,

@@ -36,19 +36,6 @@
         <p class="white--text">{{ item.name }}</p>
       </v-flex>
 
-      <v-flex xs4 class="pt-3 text-xs-center" >
-        <v-badge overlap color="secondary" >
-          <v-avatar
-            color="primary darken-1"
-            @click="dialogAddSkill = true"
-          >
-            <v-icon dark>add_circle</v-icon>
-          </v-avatar>
-
-        </v-badge>
-        <p class="white--text">Add Skill</p>
-      </v-flex>
-
       <v-flex xs8 offset-xs2 class="px-3 pt-3">
         <v-btn color="primary" block large class="font-weight-bold" @click="dialogSaveSession = true">Finish</v-btn>
       </v-flex>
@@ -79,15 +66,6 @@
 
             <v-layout wrap>
               <v-flex xs6 v-for="item in tags" :key="item.name">
-                <!--<div v-for="ct in clickedSkill.tags">-->
-                  <!--<v-chip v-if="item.id == ct" label color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">-->
-                    <!--<v-icon left>label</v-icon>{{ item.name }}-->
-                  <!--</v-chip>-->
-                  <!--<v-chip v-else label color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
-                    <!--<v-icon left>label</v-icon>{{ item.name }}-->
-                  <!--</v-chip>-->
-                <!--</div>-->
-
                 <v-chip v-if="consistTags" label color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">
                   <v-icon left>label</v-icon>{{ item.name }}
                 </v-chip>
@@ -95,52 +73,7 @@
                 <v-chip v-else label color="secondary" text-color="white" class="d-block pa-2 ml-0">
                   <v-icon left>label</v-icon>{{ item.name }}
                 </v-chip>
-
-                <!--<v-chip label v-if="item.active == true" color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">-->
-                  <!--<v-icon left>label</v-icon>{{ item.name }}-->
-                <!--</v-chip>-->
-                <!--<v-chip label v-else color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
-                  <!--<v-icon left>label</v-icon>{{ item.name }}-->
-                <!--</v-chip>-->
-
               </v-flex>
-
-              <!--<v-flex xs6>-->
-                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
-                  <!--<v-icon left>label</v-icon>Frequent Tag 1-->
-                <!--</v-chip>-->
-                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
-                  <!--<v-icon left>label</v-icon>Frequent Tag 3-->
-                <!--</v-chip>-->
-                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
-                  <!--<v-icon left>label</v-icon>Frequent Tag 5-->
-                <!--</v-chip>-->
-                <!--<v-chip label v-if="consistTags" color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">-->
-                  <!--<v-icon left>label</v-icon>Frequent Tag 7-->
-                <!--</v-chip>-->
-                <!--<v-chip label v-else color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
-                  <!--<v-icon left>label</v-icon>Frequent Tag 7-->
-                <!--</v-chip>-->
-              <!--</v-flex>-->
-              <!--<v-flex xs6>-->
-                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">-->
-                  <!--<v-icon left>label</v-icon>Frequent Tag 2-->
-                <!--</v-chip>-->
-
-                <!--<v-chip label v-if="consistTags" color="secondary darken-2" text-color="white" class="d-block pa-2 mr-0">-->
-                  <!--<v-icon left>label</v-icon>Frequent Tag 4-->
-                <!--</v-chip>-->
-                <!--<v-chip label v-else color="secondary" text-color="white" class="d-block pa-2 mr-0">-->
-                  <!--<v-icon left>label</v-icon>Frequent Tag 4-->
-                <!--</v-chip>-->
-
-                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">-->
-                  <!--<v-icon left>label</v-icon>Frequent Tag 6-->
-                <!--</v-chip>-->
-                <!--<v-chip label color="secondary" text-color="white" class="d-block pa-2 mr-0">-->
-                  <!--<v-icon left>label</v-icon>Frequent Tag 8-->
-                <!--</v-chip>-->
-              <!--</v-flex>-->
             </v-layout>
 
           </v-card-text>
@@ -154,40 +87,6 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-
-
-      <v-dialog
-        v-model="dialogAddSkill"
-        width="500"
-      >
-        <v-card>
-          <v-card-title
-            class="headline"
-          >
-            Add Skill
-          </v-card-title>
-
-          <v-card-text>
-            <v-layout row>
-              <v-flex xs9>
-                <v-text-field v-model="newSkillField" placeholder="Create a new skill..." v-on:keyup.13="addNewSkill()"></v-text-field>
-              </v-flex>
-              <v-flex xs3>
-                <!--<v-btn color="primary darken-1" @click="dialogAddSkill = false" block>+Add</v-btn>-->
-                <v-btn color="primary darken-1" @click="addNewSkill()" block>+Add</v-btn>
-              </v-flex>
-            </v-layout>
-          </v-card-text>
-
-          <v-divider></v-divider>
-
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="primary" flat @click="dialogAddSkill = false">Close</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-
 
       <v-dialog
         v-model="dialogSaveSession"
@@ -229,7 +128,6 @@
       data () {
         return {
           dialogSaveSession: false,
-          dialogAddSkill: false,
           dialogAddTag: false,
           consistTags: false,
           newSkillField: '',
@@ -263,23 +161,6 @@
           // }
           // this.dialogAddTag = true
         },
-
-        addNewSkill: function () {
-          if (this.newSkillField !== '' && this.newSkillField !== null && this.newSkillField !== undefined) {
-            let obj = {
-              name: this.newSkillField,
-              tags: [],
-              id: Date.now()
-            }
-            let allSkills = this.skills
-            allSkills.unshift(obj)
-            this.$store.commit('setSkills', allSkills)
-            this.newSkillField = ''
-          }
-          this.dialogAddSkill = false
-          return true
-        },
-
         addNewTag: function () {
           if (this.newTagField !== '' && this.newTagField !== null && this.newTagField !== undefined) {
             let obj = {

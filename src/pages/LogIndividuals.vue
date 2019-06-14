@@ -9,86 +9,14 @@
         <v-toolbar-title class="ml-1">Log Individuals</v-toolbar-title>
       </v-toolbar>
 
-      <v-flex xs12 class="pt-3">
-        <h4 class="title font-weight-medium text-uppercase text-xs-center white--text">Coaches</h4>
-      </v-flex>
+      <Coaches></Coaches>
 
-      <v-flex xs4 class="pt-3 text-xs-center">
-        <v-chip color="primary" text-color="white">
-          <v-avatar>
-            <v-icon>account_circle</v-icon>
-          </v-avatar>
-          Alex Ranee
-        </v-chip>
-        <v-chip color="primary" text-color="white">
-          <v-avatar>
-            <v-icon>account_circle</v-icon>
-          </v-avatar>
-          George Ranee
-        </v-chip>
-        <v-chip color="primary" text-color="white">
-          <v-avatar>
-            <v-icon>account_circle</v-icon>
-          </v-avatar>
-          Ranee
-        </v-chip>
-      </v-flex>
-
-      <v-flex xs4 class="pt-3 text-xs-center">
-        <v-chip color="primary" text-color="white">
-          <v-avatar>
-            <v-icon>account_circle</v-icon>
-          </v-avatar>
-          Alex Clare
-        </v-chip>
-        <v-chip color="primary" text-color="white">
-          <v-avatar>
-            <v-icon>account_circle</v-icon>
-          </v-avatar>
-          Mark O'neal
-        </v-chip>
-        <v-chip color="secondary" text-color="white">
-          <v-avatar>
-            <v-icon>account_circle</v-icon>
-          </v-avatar>
-          Ranee
-        </v-chip>
-      </v-flex>
-
-      <v-flex xs4 class="pt-3 text-xs-center">
-        <v-chip color="primary" text-color="white">
-          <v-avatar>
-            <v-icon>account_circle</v-icon>
-          </v-avatar>
-          Max Koval
-        </v-chip>
-        <v-chip color="primary" text-color="white">
-          <v-avatar>
-            <v-icon>account_circle</v-icon>
-          </v-avatar>
-          Andrew
-        </v-chip>
-        <v-chip color="primary" text-color="white">
-          <v-avatar>
-            <v-icon>account_circle</v-icon>
-          </v-avatar>
-          Gelik Jem
-        </v-chip>
-      </v-flex>
-
-      <v-flex xs12 class="pt-2"></v-flex>
-
-      <v-flex xs10 class="pt-3 pl-4 pr-3">
+      <v-flex xs12 class="px-3 pt-3">
         <v-select
           :items="items"
-          label="NBA Players"
+          v-model="defaultSelected"
           solo
         ></v-select>
-      </v-flex>
-      <v-flex xs2 class="align-center justify-center pt-4">
-        <v-btn flat icon color="white" class="ma-0">
-          <v-icon>filter_list</v-icon>
-        </v-btn>
       </v-flex>
 
       <v-flex xs12>
@@ -119,118 +47,19 @@
 
 <script>
     import PlayersListItem from '../components/PlayersListItem'
+    import Coaches from '../components/Coaches'
     export default {
       name: 'Session',
-      components: {PlayersListItem},
+      components: {Coaches, PlayersListItem},
       data () {
         return {
-          items: ['NBA Forwards', 'NBA Middlefilders', 'NBA Deffenders'],
-          players: [
-            {
-              number: '#11',
-              active: false,
-              avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-              title: 'Ali Connorss',
-              params: [
-                { label: 'Mindset (End)', val: 50 },
-                { label: 'Mindset (Start)', val: 75 },
-                { label: 'Receptivity', val: 25 },
-                { label: 'Engagement', val: 0 },
-                { label: 'Comprehension', val: 33 }
-              ]
-            },
-            {
-              number: '#12',
-              active: false,
-              avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-              title: 'me, Scrott, Jennifers',
-              params: [
-                { label: 'Mindset (End)', val: 50 },
-                { label: 'Mindset (Start)', val: 75 },
-                { label: 'Receptivity', val: 25 },
-                { label: 'Engagement', val: 0 },
-                { label: 'Comprehension', val: 33 }
-              ]
-            },
-            {
-              number: '#22',
-              active: false,
-              avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-              title: 'Sandra Adamss',
-              params: [
-                { label: 'Mindset (End)', val: 50 },
-                { label: 'Mindset (Start)', val: 75 },
-                { label: 'Receptivity', val: 25 },
-                { label: 'Engagement', val: 0 },
-                { label: 'Comprehension', val: 33 }
-              ]
-            },
-            {
-              number: '#43',
-              active: false,
-              avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-              title: 'Trevor Hansens',
-              params: [
-                { label: 'Mindset (End)', val: 50 },
-                { label: 'Mindset (Start)', val: 75 },
-                { label: 'Receptivity', val: 25 },
-                { label: 'Engagement', val: 0 },
-                { label: 'Comprehension', val: 33 }
-              ]
-            },
-            {
-              number: '#11',
-              active: false,
-              avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-              title: 'Ali Connorss',
-              params: [
-                { label: 'Mindset (End)', val: 50 },
-                { label: 'Mindset (Start)', val: 75 },
-                { label: 'Receptivity', val: 25 },
-                { label: 'Engagement', val: 0 },
-                { label: 'Comprehension', val: 33 }
-              ]
-            },
-            {
-              number: '#12',
-              active: false,
-              avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-              title: 'me, Scrott, Jennifers',
-              params: [
-                { label: 'Mindset (End)', val: 50 },
-                { label: 'Mindset (Start)', val: 75 },
-                { label: 'Receptivity', val: 25 },
-                { label: 'Engagement', val: 0 },
-                { label: 'Comprehension', val: 33 }
-              ]
-            },
-            {
-              number: '#22',
-              active: false,
-              avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-              title: 'Sandra Adamss',
-              params: [
-                { label: 'Mindset (End)', val: 50 },
-                { label: 'Mindset (Start)', val: 75 },
-                { label: 'Receptivity', val: 25 },
-                { label: 'Engagement', val: 0 },
-                { label: 'Comprehension', val: 33 }
-              ]
-            },
-            {
-              number: '#43',
-              active: false,
-              avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
-              title: 'Trevor Hansens',
-              params: [
-                { label: 'Mindset (End)', val: 50 },
-                { label: 'Mindset (Start)', val: 75 },
-                { label: 'Receptivity', val: 25 },
-                { label: 'Engagement', val: 0 },
-                { label: 'Comprehension', val: 33 }
-              ]
-            }
-          ]
+          defaultSelected: 'All Active Roster',
+          items: ['All Active Roster', 'Traveling Roster', 'Guards']
+        }
+      },
+      computed: {
+        players () {
+          return this.$store.getters.getPlayers
         }
       }
     }

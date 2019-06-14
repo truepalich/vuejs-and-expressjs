@@ -39,10 +39,10 @@
 
       <v-flex xs12 class="px-3 py-3">
         <v-select
-                :items="sessionTypes"
-                label="Session Type"
-                solo
-                hide-details
+          :items="sessionTypes"
+          label="Session Type"
+          solo
+          hide-details
         ></v-select>
       </v-flex>
 
@@ -51,84 +51,7 @@
       </v-flex>
 
       <v-flex xs12 class="px-3 pt-3 pb-4">
-        <!--<v-slider-->
-                <!--class="intensity-slider"-->
-                <!--v-model="intensity"-->
-                <!--:tick-labels="intensityLabels"-->
-                <!--max="4"-->
-                <!--step="1"-->
-                <!--tick-size="3"-->
-                <!--:color="color"-->
-                <!--always-dirty-->
-                <!--thumb-label="always"-->
-        <!--&gt;</v-slider>-->
-        <v-bottom-nav
-        :active.sync="bottomNav"
-        :color="color"
-        :value="true"
-        dark
-        shift
-      >
-        <v-btn dark>
-          <span>Observing</span>
-          <v-icon>looks_one</v-icon>
-        </v-btn>
-
-        <v-btn dark>
-          <span>Medical rehab</span>
-          <v-icon>looks_two</v-icon>
-        </v-btn>
-
-        <v-btn dark>
-          <span>Light contact</span>
-          <v-icon>looks_3</v-icon>
-        </v-btn>
-
-        <v-btn dark>
-          <span>No contact</span>
-          <v-icon>looks_4</v-icon>
-        </v-btn>
-
-        <v-btn dark>
-          <span>Full contact</span>
-          <v-icon>looks_5</v-icon>
-        </v-btn>
-      </v-bottom-nav>
-
-
-        <v-bottom-nav
-          :active.sync="bottomNav"
-          :color="color"
-          :value="true"
-          dark
-          shift
-          class="mt-4"
-        >
-          <v-btn dark>
-            <span>Observing</span>
-            <v-icon>mdi-battery-20</v-icon>
-          </v-btn>
-
-          <v-btn dark>
-            <span>Medical rehab</span>
-            <v-icon>mdi-battery-40</v-icon>
-          </v-btn>
-
-          <v-btn dark>
-            <span>Light contact</span>
-            <v-icon>mdi-battery-60</v-icon>
-          </v-btn>
-
-          <v-btn dark>
-            <span>No contact</span>
-            <v-icon>mdi-battery-80</v-icon>
-          </v-btn>
-
-          <v-btn dark>
-            <span>Full contact</span>
-            <v-icon>mdi-battery</v-icon>
-          </v-btn>
-        </v-bottom-nav>
+        <Intensive></Intensive>
       </v-flex>
 
       <SessionFrequentTags></SessionFrequentTags>
@@ -138,13 +61,13 @@
 
         <v-fab-transition>
           <v-btn
-                  color="deep-orange lighten-1"
-                  dark
-                  fixed
-                  bottom
-                  left
-                  fab
-                  @click="dialogNote = true"
+            color="deep-orange lighten-1"
+            dark
+            fixed
+            bottom
+            left
+            fab
+            @click="dialogNote = true"
           >
             <v-icon class="d-flex">note_add</v-icon>
           </v-btn>
@@ -153,13 +76,13 @@
 
         <v-fab-transition>
           <v-btn
-                  color="deep-orange lighten-1"
-                  dark
-                  fixed
-                  bottom
-                  right
-                  fab
-                  :to="{ name: 'LogIndividuals' }"
+            color="deep-orange lighten-1"
+            dark
+            fixed
+            bottom
+            right
+            fab
+            :to="{ name: 'LogIndividuals' }"
           >
             <v-icon class="d-flex">navigate_next</v-icon>
           </v-btn>
@@ -201,48 +124,22 @@
   import ComboboxTags from '../components/ComboboxTags'
   import AutocompleteTags from '../components/AutocompleteTags'
   import SessionFrequentTags from '../components/SessionFrequentTags'
+  import Intensive from '../components/Intensive'
   export default {
     name: 'Session',
-    components: {SessionFrequentTags, AutocompleteTags, AutocompleteLocation, ComboboxTags},
+    components: {Intensive, SessionFrequentTags, AutocompleteTags, AutocompleteLocation, ComboboxTags},
     data () {
       return {
-        bottomNav: 2,
+        intensive: 2,
         btnToggle: 'Team',
         sessionTypes: ['Practice', 'Team Workout', 'Film study', 'Indiv. Film Study'],
-        dialogNote: false,
-        frequentTypes: ['Frequent type 2', 'Frequent type 6'],
-        intensity: 2,
-        intensityLabels: [
-          'Observe',
-          'Medical rehab',
-          'Light contact',
-          'No contact',
-          'Full contact'
-        ]
-      }
-    },
-    computed: {
-      color () {
-        switch (this.bottomNav) {
-          case 0: return 'black'
-          case 1: return 'deep-orange'
-          case 2: return 'red darken-1'
-          case 3: return 'yellow darken-3'
-          case 4: return 'green'
-        }
+        dialogNote: false
+        // frequentTypes: ['Frequent type 2', 'Frequent type 6']
       }
     }
   }
 </script>
 
 <style>
-  .intensity-slider .v-slider__ticks span {
-    font-size: 14px;
-    text-align: center;
-    line-height: 15px;
-    white-space: normal;
-  }
-  .intensity-slider .v-slider__ticks>span {
-    top: 17px;
-  }
+
 </style>

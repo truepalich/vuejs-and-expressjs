@@ -33,6 +33,155 @@ export default new Vuex.Store({
       { id: '7', name: 'Tag 7', frequent: false, selected: false },
       { id: '8', name: 'Tag 8', frequent: false, selected: false }
     ],
+    coaches: [
+      { id: '1', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg', name: 'Alex Ranee', selected: true },
+      { id: '2', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg', name: 'George Ranee', selected: true },
+      { id: '3', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg', name: 'Ranee', selected: false },
+      { id: '4', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg', name: 'Alex Clare', selected: true },
+      { id: '5', avatar: 'https://cdn.vuetifyjs.com/images/lists/5.jpg', name: 'Mark O\'neal', selected: false },
+      { id: '6', avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg', name: 'Max Koval', selected: false },
+      { id: '7', avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg', name: 'Andrew', selected: false },
+      { id: '8', avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg', name: 'Gelik Jem', selected: false },
+      { id: '9', avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg', name: 'Max Barskih', selected: false }
+    ],
+    players: [
+      {
+        id: '1',
+        number: '#11',
+        active: false,
+        illness: false,
+        sleeppy: false,
+        attendance: true,
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+        title: 'Ali Connorss',
+        params: [
+          { label: 'Mindset (End)', val: 0 },
+          { label: 'Mindset (Start)', val: 0 },
+          { label: 'Receptivity', val: 0 },
+          { label: 'Engagement', val: 0 },
+          { label: 'Comprehension', val: 0 }
+        ]
+      },
+      {
+        id: '2',
+        number: '#12',
+        active: false,
+        illness: false,
+        sleeppy: false,
+        attendance: true,
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+        title: 'me, Scrott, Jennifers',
+        params: [
+          { label: 'Mindset (End)', val: 0 },
+          { label: 'Mindset (Start)', val: 0 },
+          { label: 'Receptivity', val: 0 },
+          { label: 'Engagement', val: 0 },
+          { label: 'Comprehension', val: 0 }
+        ]
+      },
+      {
+        id: '3',
+        number: '#22',
+        active: false,
+        illness: false,
+        sleeppy: false,
+        attendance: true,
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+        title: 'Sandra Adamss',
+        params: [
+          { label: 'Mindset (End)', val: 0 },
+          { label: 'Mindset (Start)', val: 0 },
+          { label: 'Receptivity', val: 0 },
+          { label: 'Engagement', val: 0 },
+          { label: 'Comprehension', val: 0 }
+        ]
+      },
+      {
+        id: '4',
+        number: '#43',
+        active: false,
+        illness: false,
+        sleeppy: false,
+        attendance: true,
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+        title: 'Trevor Hansens',
+        params: [
+          { label: 'Mindset (End)', val: 0 },
+          { label: 'Mindset (Start)', val: 0 },
+          { label: 'Receptivity', val: 0 },
+          { label: 'Engagement', val: 0 },
+          { label: 'Comprehension', val: 0 }
+        ]
+      },
+      {
+        id: '5',
+        number: '#111',
+        active: false,
+        illness: false,
+        sleeppy: false,
+        attendance: true,
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
+        title: 'Ali Connorss',
+        params: [
+          { label: 'Mindset (End)', val: 0 },
+          { label: 'Mindset (Start)', val: 0 },
+          { label: 'Receptivity', val: 0 },
+          { label: 'Engagement', val: 0 },
+          { label: 'Comprehension', val: 0 }
+        ]
+      },
+      {
+        id: '6',
+        number: '#121',
+        active: false,
+        illness: false,
+        sleeppy: false,
+        attendance: true,
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+        title: 'me, Scrott, Jennifers',
+        params: [
+          { label: 'Mindset (End)', val: 0 },
+          { label: 'Mindset (Start)', val: 0 },
+          { label: 'Receptivity', val: 0 },
+          { label: 'Engagement', val: 0 },
+          { label: 'Comprehension', val: 0 }
+        ]
+      },
+      {
+        id: '7',
+        number: '#221',
+        active: false,
+        illness: false,
+        sleeppy: false,
+        attendance: true,
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
+        title: 'Sandra Adamss',
+        params: [
+          { label: 'Mindset (End)', val: 0 },
+          { label: 'Mindset (Start)', val: 0 },
+          { label: 'Receptivity', val: 0 },
+          { label: 'Engagement', val: 0 },
+          { label: 'Comprehension', val: 0 }
+        ]
+      },
+      {
+        id: '8',
+        number: '#431',
+        active: false,
+        illness: false,
+        sleeppy: false,
+        attendance: true,
+        avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg',
+        title: 'Trevor Hansens',
+        params: [
+          { label: 'Mindset (End)', val: 0 },
+          { label: 'Mindset (Start)', val: 0 },
+          { label: 'Receptivity', val: 0 },
+          { label: 'Engagement', val: 0 },
+          { label: 'Comprehension', val: 0 }
+        ]
+      }
+    ],
     comments: [
       { id: '1', text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.' },
       { id: '2', text: 'A reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that.' }
@@ -47,6 +196,12 @@ export default new Vuex.Store({
     },
     setTags (state, payload) {
       state.tags = payload
+    },
+    setCoaches (state, payload) {
+      state.coaches = payload
+    },
+    setPlayers (state, payload) {
+      state.players = payload
     },
     setComments (state, payload) {
       state.comments = payload
@@ -75,6 +230,12 @@ export default new Vuex.Store({
     },
     getComments: (state, getters) => {
       return state.comments
+    },
+    getCoaches: (state, getters) => {
+      return state.coaches
+    },
+    getPlayers: (state, getters) => {
+      return state.players
     },
     getTags: (state, getters) => {
       return state.tags
