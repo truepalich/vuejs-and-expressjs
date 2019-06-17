@@ -12,13 +12,13 @@ export default new Vuex.Store({
     ],
     user: { family_name: 'Last name', given_name: 'First name' },
     skills: [
-      { id: '1', name: 'Skill 1', tags: [] },
+      { id: '1', name: 'Skill 1', tags: ['1', '4', '5'] },
       { id: '2', name: 'Skill 2', tags: [] },
       { id: '3', name: 'Skill 3', tags: [] },
       { id: '4', name: 'Skill 4', tags: [] },
       { id: '5', name: 'Skill 5', tags: [] },
       { id: '6', name: 'Skill 6', tags: [] },
-      { id: '7', name: 'Skill 7', tags: [] },
+      { id: '7', name: 'Skill 7', tags: ['2', '4'] },
       { id: '8', name: 'Skill 8', tags: [] },
       { id: '9', name: 'Skill 9', tags: [] },
       { id: '11', name: 'Skill 11', tags: [] }
@@ -191,11 +191,11 @@ export default new Vuex.Store({
     increment (state) {
       state.count++
     },
-    setSkills (state, payload) {
-      state.skills = payload
-    },
     setTags (state, payload) {
       state.tags = payload
+    },
+    setSkills (state, payload) {
+      state.skills = payload
     },
     setCoaches (state, payload) {
       state.coaches = payload
@@ -226,6 +226,12 @@ export default new Vuex.Store({
       return state.todos.find(todo => todo.id === id)
     },
     getSkills: (state, getters) => {
+      return state.skills
+    },
+    getSkillById: state => id => {
+      return state.skills.find(skill => skill.id === id)
+    },
+    getTagsOfSkill: (state, getters) => {
       return state.skills
     },
     getComments: (state, getters) => {

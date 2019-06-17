@@ -24,35 +24,6 @@
           </v-avatar>
         </v-badge>
         <p class="white--text">{{ item.name }}</p>
-
-
-
-        <v-dialog
-                v-model="dialogTags"
-                width="500"
-        >
-          <v-card>
-            <v-card-title
-                    class="headline"
-            >
-              Tags
-            </v-card-title>
-
-            <v-card-text>
-              <SkillTags :currentSkill=item ></SkillTags>
-            </v-card-text>
-
-            <v-divider></v-divider>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="primary" flat @click="dialogTags = false">Close</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-
-
-
       </v-flex>
 
       <v-flex xs8 offset-xs2 class="px-3 pt-3">
@@ -110,7 +81,29 @@
 
 
 
+      <v-dialog
+        v-model="dialogTags"
+        width="500"
+      >
+        <v-card>
+          <v-card-title
+            class="headline"
+          >
+            Tags
+          </v-card-title>
 
+          <v-card-text>
+            <SkillTags :currentSkill=currentSkill></SkillTags>
+          </v-card-text>
+
+          <v-divider></v-divider>
+
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" flat @click="dialogTags = false">Close</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
 
 
 
@@ -162,7 +155,8 @@
           consistTags: false,
           newSkillField: '',
           newTagField: '',
-          clickedSkill: {}
+          // clickedSkill: {},
+          currentSkill: {}
         }
       },
       methods: {
@@ -176,7 +170,9 @@
         // },
 
         addTagsToSkill: function (skill) {
+          this.currentSkill = {}
           this.dialogTags = true
+          this.currentSkill = skill
         },
         showTagsOfSkill: function (skill) {
           // this.clickedSkill = skill
