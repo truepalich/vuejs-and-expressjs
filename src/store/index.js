@@ -14,11 +14,11 @@ export default new Vuex.Store({
     skills: [
       { id: '1', name: 'Skill 1', tags: [] },
       { id: '2', name: 'Skill 2', tags: [] },
-      { id: '3', name: 'Skill 3', tags: ['1', '2'] },
+      { id: '3', name: 'Skill 3', tags: [] },
       { id: '4', name: 'Skill 4', tags: [] },
       { id: '5', name: 'Skill 5', tags: [] },
       { id: '6', name: 'Skill 6', tags: [] },
-      { id: '7', name: 'Skill 7', tags: ['1', '2'] },
+      { id: '7', name: 'Skill 7', tags: [] },
       { id: '8', name: 'Skill 8', tags: [] },
       { id: '9', name: 'Skill 9', tags: [] },
       { id: '11', name: 'Skill 11', tags: [] }

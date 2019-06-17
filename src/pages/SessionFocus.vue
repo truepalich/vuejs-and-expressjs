@@ -16,24 +16,43 @@
           <template v-slot:badge v-if="item.tags.length > 0">
             <v-icon>local_offer</v-icon>
           </template>
-
           <v-avatar
-            v-if="item.tags.length > 0"
-            color="primary"
-            @click="showTagsOfSkill(item)"
+                  :class="[item.tags.length > 0 ? 'primary' : 'secondary']"
+                  @click="addTagsToSkill(item)"
           >
             <v-icon dark>offline_bolt</v-icon>
           </v-avatar>
-          <v-avatar
-            v-else
-            color="secondary"
-            @click="showTagsOfSkill(item)"
-          >
-            <v-icon dark>offline_bolt</v-icon>
-          </v-avatar>
-
         </v-badge>
         <p class="white--text">{{ item.name }}</p>
+
+
+
+        <v-dialog
+                v-model="dialogTags"
+                width="500"
+        >
+          <v-card>
+            <v-card-title
+                    class="headline"
+            >
+              Tags
+            </v-card-title>
+
+            <v-card-text>
+              <SkillTags :currentSkill=item ></SkillTags>
+            </v-card-text>
+
+            <v-divider></v-divider>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="primary" flat @click="dialogTags = false">Close</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+
+
+
       </v-flex>
 
       <v-flex xs8 offset-xs2 class="px-3 pt-3">
@@ -42,51 +61,59 @@
 
       <v-flex xs12 class="pa-2"></v-flex>
 
-      <v-dialog
-        v-model="dialogAddTag"
-        width="500"
-      >
-        <v-card>
-          <v-card-title
-            class="headline"
-          >
-            Tags
-          </v-card-title>
+      <!--<v-dialog-->
+        <!--v-model="dialogAddTag"-->
+        <!--width="500"-->
+      <!--&gt;-->
+        <!--<v-card>-->
+          <!--<v-card-title-->
+            <!--class="headline"-->
+          <!--&gt;-->
+            <!--Tags-->
+          <!--</v-card-title>-->
 
-          <v-card-text>
-            <v-layout row>
-              <v-flex xs9>
-                <v-text-field v-model="newTagField" placeholder="Create a new tag..." v-on:keyup.13="addNewTag()"></v-text-field>
-              </v-flex>
-              <v-flex xs3>
-                <!--<v-btn color="primary darken-1" @click="dialogAddTag = false" block>+Add</v-btn>-->
-                <v-btn color="primary darken-1" @click="addNewTag()" block>+Add</v-btn>
-              </v-flex>
-            </v-layout>
+          <!--<v-card-text>-->
+            <!--<v-layout row>-->
+              <!--<v-flex xs9>-->
+                <!--<v-text-field v-model="newTagField" placeholder="Create a new tag..." v-on:keyup.13="addNewTag()"></v-text-field>-->
+              <!--</v-flex>-->
+              <!--<v-flex xs3>-->
+                <!--&lt;!&ndash;<v-btn color="primary darken-1" @click="dialogAddTag = false" block>+Add</v-btn>&ndash;&gt;-->
+                <!--<v-btn color="primary darken-1" @click="addNewTag()" block>+Add</v-btn>-->
+              <!--</v-flex>-->
+            <!--</v-layout>-->
 
-            <v-layout wrap>
-              <v-flex xs6 v-for="item in tags" :key="item.name">
-                <v-chip v-if="consistTags" label color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">
-                  <v-icon left>label</v-icon>{{ item.name }}
-                </v-chip>
+            <!--<v-layout wrap>-->
+              <!--<v-flex xs6 v-for="item in tags" :key="item.name">-->
+                <!--<v-chip v-if="consistTags" label color="secondary darken-2" text-color="white" class="d-block pa-2 ml-0">-->
+                  <!--<v-icon left>label</v-icon>{{ item.name }}-->
+                <!--</v-chip>-->
 
-                <v-chip v-else label color="secondary" text-color="white" class="d-block pa-2 ml-0">
-                  <v-icon left>label</v-icon>{{ item.name }}
-                </v-chip>
-              </v-flex>
-            </v-layout>
+                <!--<v-chip v-else label color="secondary" text-color="white" class="d-block pa-2 ml-0">-->
+                  <!--<v-icon left>label</v-icon>{{ item.name }}-->
+                <!--</v-chip>-->
+              <!--</v-flex>-->
+            <!--</v-layout>-->
 
-          </v-card-text>
+          <!--</v-card-text>-->
 
-          <v-divider></v-divider>
+          <!--<v-divider></v-divider>-->
 
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <!--<v-btn color="primary" flat @click="dialogAddTag = false; consistTags = false">Close</v-btn>-->
-            <v-btn color="primary" flat @click="dialogAddTag = false; consistTags = false; clickedSkill = {}">Close</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+          <!--<v-card-actions>-->
+            <!--<v-spacer></v-spacer>-->
+            <!--&lt;!&ndash;<v-btn color="primary" flat @click="dialogAddTag = false; consistTags = false">Close</v-btn>&ndash;&gt;-->
+            <!--<v-btn color="primary" flat @click="dialogAddTag = false; consistTags = false; clickedSkill = {}">Close</v-btn>-->
+          <!--</v-card-actions>-->
+        <!--</v-card>-->
+      <!--</v-dialog>-->
+
+
+
+
+
+
+
+
 
       <v-dialog
         v-model="dialogSaveSession"
@@ -123,10 +150,13 @@
 </template>
 
 <script>
+    import SkillTags from '../components/SkillTags'
     export default {
       name: 'SessionFocus',
+      components: {SkillTags},
       data () {
         return {
+          dialogTags: false,
           dialogSaveSession: false,
           dialogAddTag: false,
           consistTags: false,
@@ -145,6 +175,9 @@
         //   this.dialogAddTag = true
         // },
 
+        addTagsToSkill: function (skill) {
+          this.dialogTags = true
+        },
         showTagsOfSkill: function (skill) {
           // this.clickedSkill = skill
 
